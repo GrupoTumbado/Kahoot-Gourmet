@@ -1,4 +1,4 @@
-module pw.espana.kahootgourmet.client {
+module pw.espana.kahootgourmet.server {
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.web;
@@ -10,6 +10,6 @@ module pw.espana.kahootgourmet.client {
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
 
-    opens pw.espana.kahootgourmet.client to javafx.fxml;
-    exports pw.espana.kahootgourmet.client;
+    opens pw.espana.kahootgourmet.server to javafx.fxml;
+    exports pw.espana.kahootgourmet.server;
 }

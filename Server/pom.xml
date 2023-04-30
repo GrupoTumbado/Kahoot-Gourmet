@@ -5,9 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>pw.espana.kahootgourmet</groupId>
-    <artifactId>Client</artifactId>
+    <artifactId>Server</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>Client</name>
+    <name>Server</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -117,7 +117,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>pw.espana.kahootgourmet.client/pw.espana.kahootgourmet.client.HelloApplication
+                            <mainClass>pw.espana.kahootgourmet.server/pw.espana.kahootgourmet.server.ServerApplication
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
