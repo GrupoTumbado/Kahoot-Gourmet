@@ -117,7 +117,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>pw.espana.kahootgourmet.client/pw.espana.kahootgourmet.client.HelloApplication
+                            <mainClass>pw.espana.kahootgourmet.client/pw.espana.kahootgourmet.client.ClientApplication
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
