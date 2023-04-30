@@ -1,6 +1,6 @@
 package pw.espana.kahootgourmet.client.messages.server.requests;
 
-import pw.espana.kahootgourmet.server.messages.Message;
+import pw.espana.kahootgourmet.client.messages.Message;
 
 public class AnswerResultsScreenRequest extends Message {
     private final int id = 0x03;
