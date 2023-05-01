@@ -10,8 +10,6 @@ import pw.espana.kahootgourmet.server.game.Questionnaire;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.concurrent.Executors;
