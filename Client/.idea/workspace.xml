@@ -5,26 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="108bf945-86f5-4f9f-92c0-e1adc1dbbc3b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/client/game/Answer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/client/game/Question.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/client/game/Questionnaire.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/client/game/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/client/messages/MessageId.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/client/messages/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/client/messages/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/client/messages/client/requests/AnswerRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/client/messages/client/requests/AnswerRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/client/messages/client/requests/JoinRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/client/messages/client/requests/JoinRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/client/messages/client/requests/MessageRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/client/messages/client/requests/MessageRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/client/messages/client/responses/MessageResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/client/messages/client/responses/MessageResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/client/messages/server/requests/AnswerResultsScreenRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/client/messages/server/requests/AnswerResultsScreenRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/client/messages/server/requests/ChoiceScreenRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/client/messages/server/requests/ChoiceScreenRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/client/messages/server/requests/FinalScoreScreenRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/client/messages/server/requests/FinalScoreScreenRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/client/messages/server/requests/LoadingScreenRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/client/messages/server/requests/LoadingScreenRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/client/messages/server/responses/JoinResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/client/messages/server/responses/JoinResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/client/messages/server/responses/MessageResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/client/messages/server/responses/MessageResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/pw/espana/kahootgourmet/server/ServerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/pw/espana/kahootgourmet/server/ServerApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/src/main/resources/pw/espana/kahootgourmet/server/1Principal.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/resources/pw/espana/kahootgourmet/server/main-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/src/main/resources/pw/espana/kahootgourmet/server/2configPrincipal.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/resources/pw/espana/kahootgourmet/server/quiz-editor-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/src/main/resources/pw/espana/kahootgourmet/server/3empezando.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/resources/pw/espana/kahootgourmet/server/join-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +64,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1682883075158</updated>
-      <workItem from="1682883076190" duration="3928000" />
+      <workItem from="1682883076190" duration="4435000" />
     </task>
     <servers />
   </component>
