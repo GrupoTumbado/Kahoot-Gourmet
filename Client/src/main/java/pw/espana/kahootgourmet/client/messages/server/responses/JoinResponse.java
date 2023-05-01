@@ -1,9 +1,10 @@
 package pw.espana.kahootgourmet.client.messages.server.responses;
 
 import pw.espana.kahootgourmet.client.messages.Message;
+import pw.espana.kahootgourmet.client.messages.MessageId;
 
 public class JoinResponse extends Message {
-    private final int id = 0x81;
+    private final int id = MessageId.SERVER_JOIN_RESPONSE.getValue();
     private final boolean joined;
     private String errorMessage;
     private int totalQuestions;

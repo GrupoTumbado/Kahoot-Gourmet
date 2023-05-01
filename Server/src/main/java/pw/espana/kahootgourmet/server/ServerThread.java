@@ -106,9 +106,8 @@ public class ServerThread extends Thread implements Comparable<ServerThread> {
         return message.getId();
     }
 
-    private void closeRequest() throws Exception {
+    private void closeRequest() {
         System.out.println("Closed connection from " + socket.getInetAddress());
-        socket.close();
     }
 
     private int rejectConnection(String message) throws Exception {
@@ -119,7 +118,7 @@ public class ServerThread extends Thread implements Comparable<ServerThread> {
     }
 
     public void displayLoadingScreen(int waitTime) throws Exception {
-        this.writer.writeObject(waitTime);
+        this.writer.writeObject(new LoadingScreenRequest(waitTime));
     }
 
     public void enableAnswerIntake(Question question) throws Exception {

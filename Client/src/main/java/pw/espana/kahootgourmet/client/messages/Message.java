@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.time.Instant;
 
 public class Message implements Serializable {
-    private final int id = 0x00;
+    private final int id = MessageId.SERVER_DEBUG_REQUEST.getValue();
     private final Instant createdAt = Instant.now();
 
     public Message() {}
