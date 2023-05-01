@@ -1,9 +1,10 @@
 package pw.espana.kahootgourmet.client.messages.client.requests;
 
 import pw.espana.kahootgourmet.client.messages.Message;
+import pw.espana.kahootgourmet.client.messages.MessageId;
 
 public class JoinRequest extends Message {
-    private final int id = 0x41;
+    private final int id = MessageId.CLIENT_JOIN_REQUEST.getValue();
     private final int pin;
     private final String username;
 
