@@ -92,8 +92,9 @@ public class ServerThread extends Thread implements Comparable<ServerThread> {
                 Answer answer = question.answers()[answerRequest.getAnswer()];
 
                 if (answer.correct()) {
+                    int answerTime = serverApplication.getQuestionnaire().getAnswerTime();
                     Duration timeToAnswer = Duration.between(questionSentTime, answerRequest.getCreatedAt());
-                    float scoreMultiplier = (float) question.waitTime() / (question.waitTime() + ((float) timeToAnswer.toMillis() / 1000.0f));
+                    float scoreMultiplier = (float) answerTime / (answerTime + ((float) timeToAnswer.toMillis() / 1000.0f));
                     pointsGained = (int) (question.scoreValue() * scoreMultiplier);
 
                     user.addScore(pointsGained);
