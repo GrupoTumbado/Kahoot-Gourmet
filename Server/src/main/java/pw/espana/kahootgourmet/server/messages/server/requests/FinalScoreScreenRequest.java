@@ -1,9 +1,10 @@
 package pw.espana.kahootgourmet.server.messages.server.requests;
 
 import pw.espana.kahootgourmet.server.messages.Message;
+import pw.espana.kahootgourmet.server.messages.MessageId;
 
 public class FinalScoreScreenRequest extends Message {
-    private final int id = 0x04;
+    private final int id = MessageId.SERVER_FINAL_SCORE_SCREEN_REQUEST.getValue();
     private final int place;
     private final int totalPoints;
 

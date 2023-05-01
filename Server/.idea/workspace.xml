@@ -7,6 +7,18 @@
     <list default="true" id="66f0ee7f-824c-40b6-8318-ecffe5833959" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../Client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/server/ServerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/server/ServerApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/server/messages/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/server/messages/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/server/messages/client/requests/AnswerRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/server/messages/client/requests/AnswerRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/server/messages/client/requests/JoinRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/server/messages/client/requests/JoinRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/server/messages/client/requests/MessageRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/server/messages/client/requests/MessageRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/server/messages/client/responses/MessageResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/server/messages/client/responses/MessageResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/server/messages/server/requests/AnswerResultsScreenRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/server/messages/server/requests/AnswerResultsScreenRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/server/messages/server/requests/ChoiceScreenRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/server/messages/server/requests/ChoiceScreenRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/server/messages/server/requests/FinalScoreScreenRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/server/messages/server/requests/FinalScoreScreenRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/server/messages/server/requests/LoadingScreenRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/server/messages/server/requests/LoadingScreenRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/server/messages/server/responses/JoinResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/server/messages/server/responses/JoinResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/server/messages/server/responses/MessageResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/server/messages/server/responses/MessageResponse.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +91,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1682882953562</updated>
-      <workItem from="1682882954913" duration="6729000" />
+      <workItem from="1682882954913" duration="25583000" />
     </task>
     <servers />
   </component>
