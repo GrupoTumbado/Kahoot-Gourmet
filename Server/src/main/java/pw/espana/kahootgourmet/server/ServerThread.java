@@ -118,7 +118,7 @@ public class ServerThread extends Thread implements Comparable<ServerThread> {
     }
 
     public void displayLoadingScreen(int waitTime) throws Exception {
-        this.writer.writeObject(waitTime);
+        this.writer.writeObject(new LoadingScreenRequest(waitTime));
     }
 
     public void enableAnswerIntake(Question question) throws Exception {
