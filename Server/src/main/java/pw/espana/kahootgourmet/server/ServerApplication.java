@@ -12,141 +12,134 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 public class ServerApplication extends Application {
-    private final TreeSet<ServerThread> serverThreads = new TreeSet<>();
-    private int state = 0; // Defines the state of the state machine. State 0 is a standby state, state 99 is a termination state
-    private int pin = 0;
-    private Questionnaire questionnaire;
+    private static final TreeSet<ServerUserThread> serverUserThreads = new TreeSet<>();
+    private static int state = 0; // Defines the state of the state machine. State 0 is a standby state, state 99 is a termination state
+    private static int pin = 0;
+    private static Questionnaire questionnaire;
+    private static ServerSocket serverSocket;
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(ServerApplication.class.getResource("hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        stage.setTitle("Hello!");
+        FXMLLoader fxmlLoader = new FXMLLoader(ServerApplication.class.getResource("main-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 1200, 700);
+        stage.setTitle("Kahoot Gourmet");
         stage.setScene(scene);
         stage.show();
     }
 
-    public void startServer(int port, int pin, String pathToQuestionnaire) {
-        this.pin = pin;
+    @Override
+    public void stop() throws IOException {
+        closeServer();
+    }
+
+    public static boolean startServer(int port, int pin, String pathToQuestionnaire) {
+        ServerApplication.pin = pin;
         state = 1;
         questionnaire = Questionnaire.loadFromFile(pathToQuestionnaire);
 
         if (questionnaire == null) {
             state = 0;
-            return;
+            return false;
         }
 
-        try (ServerSocket serverSocket = new ServerSocket(port)) {
-            boolean runMainLoop = true;
+        try {
+            serverSocket = new ServerSocket(port);
+            ServerThread serverThread = new ServerThread(serverSocket, questionnaire);
+            serverThread.start();
+
             System.out.println("Server is listening on port " + port);
-
-            while (runMainLoop) {
-                switch (state) {
-                    case 1 -> {
-                        Socket socket = serverSocket.accept();
-                        ServerThread worker = new ServerThread(socket, this);
-                        this.serverThreads.add(worker);
-                        worker.start();
-                    }
-                    case 2 -> {
-                        clientDisplayLoadingScreen(questionnaire.getWaitTime());
-
-                        try (ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1)) {
-                            scheduler.schedule(() -> {
-                                state = 3;
-                            }, questionnaire.getWaitTime(), TimeUnit.SECONDS);
-                        } catch (Exception e) {
-                            System.out.println("Error in the server: " + e.getMessage());
-                            e.printStackTrace();
-                        }
-
-                        state = 0;
-                    }
-                    case 3 -> {
-                        clientEnableAnswerIntake(questionnaire.getCurrentQuestion());
-
-                        try (ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1)) {
-                            scheduler.schedule(() -> {
-                                state = 4;
-                            }, questionnaire.getAnswerTime(), TimeUnit.SECONDS);
-                        } catch (Exception e) {
-                            System.out.println("Error in the server: " + e.getMessage());
-                            e.printStackTrace();
-                        }
-
-                        state = 0;
-                    }
-                    case 4 -> {
-                        clientSendAnswerResults();
-                        questionnaire.advanceQuestion();
-                        state = 0;
-                    }
-                    case 99 -> runMainLoop = false;
-                    default -> {}
-                }
-            }
         } catch (Exception e) {
             System.out.println("Error in the server: " + e.getMessage());
             e.printStackTrace();
         }
+
+        return true;
     }
 
-    public void removeThread(ServerThread worker) {
-        serverThreads.remove(worker);
+    public static void closeServer() throws IOException {
+        for (ServerUserThread serverUserThread : serverUserThreads) {
+            try {
+                serverUserThread.closeRequest();
+            } catch (Exception e) {
+                System.err.println(e);
+            }
+        }
+
+        state = 0;
+        questionnaire = null;
+        serverSocket.close();
     }
 
-    public boolean isUsernameTaken(String username) {
-        for (ServerThread userThread: this.serverThreads) {
+    public static int getState() {
+        return state;
+    }
+
+    public static void setState(int state) {
+        ServerApplication.state = state;
+    }
+
+    public static void removeUserThread(ServerUserThread worker) {
+        serverUserThreads.remove(worker);
+    }
+
+    public static boolean isUsernameTaken(String username) {
+        for (ServerUserThread userThread: serverUserThreads) {
             if (userThread.getUsername().equals(username)) return true;
         }
 
         return false;
     }
-    public Set<ServerThread> getConnectedUsers() {
-        return this.serverThreads;
+
+    public static void addConnectedUsers(ServerUserThread serverUserThread) {
+        serverUserThreads.add(serverUserThread);
     }
 
-    public Questionnaire getQuestionnaire() {
+    public static Set<ServerUserThread> getConnectedUsers() {
+        return serverUserThreads;
+    }
+
+    public static Questionnaire getQuestionnaire() {
         return questionnaire;
     }
 
-    public int getQuestionnaireSize() {
+    public static int getQuestionnaireSize() {
         return questionnaire.getQuestionCount();
     }
 
-    public int getQuestionnaireWaitTime() {
+    public static int getQuestionnaireWaitTime() {
         return questionnaire.getWaitTime();
     }
 
-    public int getQuestionnaireAnswerTime() {
+    public static int getQuestionnaireAnswerTime() {
         return questionnaire.getAnswerTime();
     }
 
-    public int getPin() {
+    public static int getPin() {
         return pin;
     }
 
-    public void clientDisplayLoadingScreen(int waitTime) throws Exception {
-        for (ServerThread serverThread: serverThreads) {
-            serverThread.displayLoadingScreen(waitTime);
+    public static void clientDisplayLoadingScreen(int waitTime) throws Exception {
+        for (ServerUserThread serverUserThread : serverUserThreads) {
+            serverUserThread.displayLoadingScreen(waitTime);
         }
     }
 
-    public void clientEnableAnswerIntake(Question question) throws Exception {
-        for (ServerThread serverThread: serverThreads) {
-            serverThread.enableAnswerIntake(question);
+    public static void clientEnableAnswerIntake(Question question) throws Exception {
+        for (ServerUserThread serverUserThread : serverUserThreads) {
+            serverUserThread.enableAnswerIntake(question);
         }
     }
 
-    public void clientSendAnswerResults() throws Exception {
+    public static void clientSendAnswerResults() throws Exception {
         int index = 0;
-        for (ServerThread serverThread : serverThreads) {
-            serverThread.sendAnswerResults(index + 1);
+        for (ServerUserThread serverUserThread : serverUserThreads) {
+            serverUserThread.sendAnswerResults(index + 1);
             index++;
         }
     }

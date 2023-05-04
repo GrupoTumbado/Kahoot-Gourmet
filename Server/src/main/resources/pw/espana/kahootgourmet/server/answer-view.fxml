@@ -9,7 +9,8 @@
 <?import javafx.geometry.*?>
 <?import javafx.scene.image.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="pw.espana.kahootgourmet.server.controllers.AnswerScreenController">
    <children>
       <ImageView fitHeight="700.0" fitWidth="1250.0" opacity="0.61" pickOnBounds="true" preserveRatio="true">
          <image>

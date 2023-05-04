@@ -1,3 +1,5 @@
 package pw.espana.kahootgourmet.server.game;
 
-public record Question(String question, int scoreValue, Answer[] answers) {}
+import java.io.Serializable;
+
+public record Question(String question, int scoreValue, Answer[] answers) implements Serializable {}
