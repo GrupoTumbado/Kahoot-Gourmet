@@ -64,7 +64,7 @@ public class ServerUserThread extends Thread implements Comparable<ServerUserThr
         }
 
         switch (MessageId.valueOf(message.getId())) {
-            case CLIENT_DEBUG_REQUEST -> { // Handle debug messages
+            case CLIENT_DEBUG_REQUEST, CLIENT_DEBUG_RESPONSE -> {// Handle debug messages
                 this.writer.writeObject(new MessageResponse());
                 System.out.println("Received test message from client");
             }

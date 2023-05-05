@@ -9,13 +9,8 @@ import pw.espana.kahootgourmet.server.game.Questionnaire;
 
 import java.io.IOException;
 import java.net.ServerSocket;
-import java.net.Socket;
 import java.util.Set;
 import java.util.TreeSet;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
 
 public class ServerApplication extends Application {
     private static final TreeSet<ServerUserThread> serverUserThreads = new TreeSet<>();
@@ -23,6 +18,7 @@ public class ServerApplication extends Application {
     private static int pin = 0;
     private static Questionnaire questionnaire;
     private static ServerSocket serverSocket;
+    private static ServerThread serverThread;
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -50,7 +46,8 @@ public class ServerApplication extends Application {
 
         try {
             serverSocket = new ServerSocket(port);
-            ServerThread serverThread = new ServerThread(serverSocket, questionnaire);
+            serverSocket.setSoTimeout(100);
+            serverThread = new ServerThread(serverSocket, questionnaire);
             serverThread.start();
 
             System.out.println("Server is listening on port " + port);
@@ -73,7 +70,13 @@ public class ServerApplication extends Application {
 
         state = 0;
         questionnaire = null;
-        serverSocket.close();
+        if (serverSocket != null && serverSocket.isBound()) {
+            serverSocket.close();
+        }
+    }
+
+    public static void interruptServerThread() throws IOException {
+        serverThread.interrupt();
     }
 
     public static int getState() {

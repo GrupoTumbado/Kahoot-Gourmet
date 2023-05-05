@@ -29,7 +29,7 @@ public class MainScreenController {
     }
 
     @FXML
-    protected void onLoadButtonClick(ActionEvent actionEvent) throws IOException {
+    protected void onLoadButtonClick(ActionEvent actionEvent) throws Exception {
         /*Answer[] answers = { new Answer("Rojo", true), new Answer("Azul", true), new Answer("Amarillo", true), new Answer("Verde", true) };
         Questionnaire questionnaire = new Questionnaire();
         questionnaire.addQuestion(new Question("De qué color es cada cuadro?", 100, answers));

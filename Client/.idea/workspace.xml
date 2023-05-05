@@ -5,15 +5,39 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="108bf945-86f5-4f9f-92c0-e1adc1dbbc3b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/client/ClientThread.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/client/ClientApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/client/ClientApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/client/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/client/controllers/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/client/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/client/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/client/PosicionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/client/controllers/PosicionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/client/ResultadoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/client/controllers/ResultadoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/pw/espana/kahootgourmet/client/botones_de_respuesta.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/pw/espana/kahootgourmet/client/buttons-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/pw/espana/kahootgourmet/client/hello-view.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/pw/espana/kahootgourmet/client/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/pw/espana/kahootgourmet/client/login-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/pw/espana/kahootgourmet/client/pantalla_de_carga.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/pw/espana/kahootgourmet/client/loading-screen-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/pw/espana/kahootgourmet/client/posicion_final.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/pw/espana/kahootgourmet/client/scoreboard-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/pw/espana/kahootgourmet/client/resultado.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/pw/espana/kahootgourmet/client/question-results-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/pw/espana/kahootgourmet/server/ServerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/pw/espana/kahootgourmet/server/ServerApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Server/src/main/java/pw/espana/kahootgourmet/server/ServerThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/pw/espana/kahootgourmet/server/ServerThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/pw/espana/kahootgourmet/server/game/Question.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/pw/espana/kahootgourmet/server/game/Question.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/pw/espana/kahootgourmet/server/ServerUserThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/pw/espana/kahootgourmet/server/ServerUserThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/pw/espana/kahootgourmet/server/controllers/MainScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/pw/espana/kahootgourmet/server/controllers/MainScreenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/pw/espana/kahootgourmet/server/controllers/QuestionScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/pw/espana/kahootgourmet/server/controllers/QuestionScreenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/pw/espana/kahootgourmet/server/controllers/StartGameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/pw/espana/kahootgourmet/server/controllers/StartGameController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -36,9 +60,9 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
+    "project.structure.side.proportion": "0.31724137",
     "settings.editor.selected.configurable": "reference.settings.ide.settings.web.browsers",
     "vue.rearranger.settings.migration": "true"
   }
@@ -66,6 +90,7 @@
       <option name="presentableId" value="Default" />
       <updated>1682883075158</updated>
       <workItem from="1682883076190" duration="5527000" />
+      <workItem from="1683235108655" duration="5441000" />
     </task>
     <servers />
   </component>

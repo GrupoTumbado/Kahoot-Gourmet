@@ -1,21 +1,18 @@
 package pw.espana.kahootgourmet.server;
 
-import com.almasb.fxgl.net.Server;
 import pw.espana.kahootgourmet.server.game.Questionnaire;
-import pw.espana.kahootgourmet.server.messages.MessageId;
 
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.SocketException;
+import java.net.SocketTimeoutException;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 public class ServerThread extends Thread {
-    private ServerSocket serverSocket;
-    private Questionnaire questionnaire;
+    private final ServerSocket serverSocket;
+    private final Questionnaire questionnaire;
 
     public ServerThread(ServerSocket serverSocket, Questionnaire questionnaire) {
         this.serverSocket = serverSocket;
@@ -32,16 +29,17 @@ public class ServerThread extends Thread {
             e.printStackTrace();
         }
     }
-    public void startServer() throws Exception {
-        boolean runMainLoop = true;
 
-        while (runMainLoop) {
+    public void startServer() throws Exception {
+        while (true) {
             switch (ServerApplication.getState()) {
                 case 1 -> {
-                    Socket socket = serverSocket.accept();
-                    ServerUserThread worker = new ServerUserThread(socket);
-                    ServerApplication.addConnectedUsers(worker);
-                    worker.start();
+                    try {
+                        Socket socket = serverSocket.accept();
+                        ServerUserThread worker = new ServerUserThread(socket);
+                        ServerApplication.addConnectedUsers(worker);
+                        worker.start();
+                    } catch (SocketTimeoutException e) {}
                 }
                 case 2 -> {
                     ServerApplication.clientDisplayLoadingScreen(questionnaire.getWaitTime());
@@ -76,13 +74,8 @@ public class ServerThread extends Thread {
                     questionnaire.advanceQuestion();
                     ServerApplication.setState(0);
                 }
-                case 99 -> runMainLoop = false;
                 default -> {}
             }
         }
-    }
-
-    public void closeServer() {
-        questionnaire = null;
     }
 }

@@ -1,4 +1,4 @@
-package pw.espana.kahootgourmet.client;
+package pw.espana.kahootgourmet.client.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

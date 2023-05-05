@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0"
+            prefWidth="1200.0" style="-fx-background-color: #3d2068;" xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="pw.espana.kahootgourmet.client.controllers.LoginController">
+   <Label alignment="CENTER" layoutX="435.0" layoutY="167.0" prefHeight="59.0" prefWidth="331.0" text="Kahoot Gourmet"
+          textFill="WHITE">
+      <font>
+         <Font name="Lucida Sans Demibold" size="36.0"/>
+      </font>
+   </Label>
+   <Circle fill="#4c2882" layoutX="1099.0" layoutY="620.0" radius="296.0" stroke="#4c2882" strokeType="INSIDE"/>
+   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#4c2882" height="362.0" layoutX="-75.0" layoutY="117.0"
+              stroke="#4c2882" strokeType="INSIDE" width="342.0"/>
+   <Pane layoutX="435.0" layoutY="267.0" prefHeight="284.0" prefWidth="331.0"
+         style="-fx-background-color: #f0f0f0; -fx-border-radius: 23px;">
+      <Button fx:id="btnEmpezar" contentDisplay="CENTER" layoutX="81.0" layoutY="187.0" mnemonicParsing="false"
+              prefHeight="66.0" prefWidth="170.0" style="-fx-background-radius: 12px; -fx-background-color: #2c2c2c;"
+              text="Empezar" textFill="WHITE" onAction="#onStartButtonClick">
+         <font>
+            <Font size="25.0"/>
+         </font>
+      </Button>
+      <TextField fx:id="txtIP" layoutX="92.0" layoutY="28.0" promptText="IP"/>
+      <TextField fx:id="txtPuerto" layoutX="92.0" layoutY="65.0" promptText="Puerto"/>
+      <TextField fx:id="txtUsuario" layoutX="92.0" layoutY="98.0" promptText="Nombre de Usuario"/>
+      <TextField fx:id="txtPIN" layoutX="92.0" layoutY="132.0" promptText="Pin"/>
+   </Pane>
+</AnchorPane>
