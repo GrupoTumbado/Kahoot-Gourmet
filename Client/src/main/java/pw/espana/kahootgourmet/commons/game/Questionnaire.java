@@ -1,11 +1,12 @@
 package pw.espana.kahootgourmet.commons.game;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.List;
 
-public class Questionnaire {
+public class Questionnaire implements Serializable {
     private int currentQuestion = 0;
-    private List<Question> questions;
+    private final List<Question> questions = new ArrayList<>();
     private final int answerTime;
     private final int waitTime;
 
@@ -42,6 +43,7 @@ public class Questionnaire {
     public void addQuestion(Question question) {
         questions.add(question);
     }
+    public void eraseQuestion(Question question){questions.remove(question);}
 
     public int getAnswerTime() {
         return answerTime;

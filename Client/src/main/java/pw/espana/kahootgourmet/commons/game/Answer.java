@@ -1,3 +1,5 @@
 package pw.espana.kahootgourmet.commons.game;
 
-public record Answer(String answer, boolean correct) {}
+import java.io.Serializable;
+
+public record Answer(String answer, boolean correct) implements Serializable {}
