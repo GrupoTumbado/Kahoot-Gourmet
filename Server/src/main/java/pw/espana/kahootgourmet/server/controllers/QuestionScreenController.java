@@ -10,8 +10,6 @@ import pw.espana.kahootgourmet.commons.game.Question;
 import pw.espana.kahootgourmet.server.ServerApplication;
 import pw.espana.kahootgourmet.server.StateId;
 
-import java.util.concurrent.ThreadLocalRandom;
-
 public class QuestionScreenController {
     private Stage stage;
     @FXML

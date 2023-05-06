@@ -1,13 +1,10 @@
 package pw.espana.kahootgourmet.server.controllers;
 
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 import pw.espana.kahootgourmet.commons.game.Answer;
 import pw.espana.kahootgourmet.commons.game.Question;
 import pw.espana.kahootgourmet.server.ServerApplication;

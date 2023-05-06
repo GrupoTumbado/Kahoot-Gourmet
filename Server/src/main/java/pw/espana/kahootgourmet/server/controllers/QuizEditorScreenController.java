@@ -1,15 +1,10 @@
 package pw.espana.kahootgourmet.server.controllers;
 
-import com.almasb.fxgl.profile.SaveFile;
 import javafx.stage.FileChooser;
-import pw.espana.kahootgourmet.commons.game.Questionnaire;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -19,11 +14,9 @@ import pw.espana.kahootgourmet.commons.game.Answer;
 import pw.espana.kahootgourmet.commons.game.Question;
 import pw.espana.kahootgourmet.commons.game.Questionnaire;
 import pw.espana.kahootgourmet.server.ScreenSwitcher;
-import pw.espana.kahootgourmet.server.ServerApplication;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Objects;
 
 public class QuizEditorScreenController {
     private Stage stage;

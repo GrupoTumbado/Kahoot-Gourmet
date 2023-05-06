@@ -1,7 +1,5 @@
 package pw.espana.kahootgourmet.server;
 
-import pw.espana.kahootgourmet.commons.messages.MessageId;
-
 import java.util.HashMap;
 import java.util.Map;
 
