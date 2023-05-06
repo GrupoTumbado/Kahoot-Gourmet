@@ -8,85 +8,111 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pw.espana.kahootgourmet.server.controllers.QuizEditorScreenController">
-   <ImageView fitHeight="717.0" fitWidth="1206.0" layoutX="-6.0" pickOnBounds="true" preserveRatio="true">
-      <viewport>
-         <Rectangle2D height="530.0" width="900.0" />
-      </viewport>
-      <Image url="@img/4e7de-paul-neira-27-de-febrero.jpg" />
-   </ImageView>
-   <Pane layoutX="540.0" layoutY="14.0" prefHeight="109.0" prefWidth="366.0" style="-fx-background-color: #319231;" AnchorPane.bottomAnchor="577.0" AnchorPane.leftAnchor="540.0" AnchorPane.rightAnchor="294.0" AnchorPane.topAnchor="14.0">
-      <Label layoutX="30.0" layoutY="18.0" text="Editor de quiz" textFill="WHITE">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pw.espana.kahootgourmet.server.controllers.QuizEditorScreenController">
+   <children>
+      <ImageView fitHeight="717.0" fitWidth="1206.0" layoutX="-6.0" pickOnBounds="true" preserveRatio="true">
+         <viewport>
+            <Rectangle2D height="530.0" width="900.0" />
+         </viewport>
+         <image>
+            <Image url="@img/4e7de-paul-neira-27-de-febrero.jpg" />
+         </image>
+      </ImageView>
+      <Pane layoutX="540.0" layoutY="14.0" prefHeight="109.0" prefWidth="366.0" style="-fx-background-color: #319231;" AnchorPane.bottomAnchor="577.0" AnchorPane.leftAnchor="540.0" AnchorPane.rightAnchor="294.0" AnchorPane.topAnchor="14.0">
+         <children>
+            <Label layoutX="30.0" layoutY="18.0" text="Editor de quiz" textFill="WHITE">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="50.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <VBox layoutX="35.0" layoutY="41.0" prefHeight="618.0" prefWidth="185.0" style="-fx-background-color: #505050;">
+         <children>
+            <TableView fx:id="tablePreguntas" prefHeight="618.0" prefWidth="185.0">
+               <columns>
+                  <TableColumn fx:id="columnPreguntas" prefWidth="184.0" text="Preguntas" />
+               </columns>
+            </TableView>
+         </children>
+      </VBox>
+      <TextField fx:id="txtPregunta" alignment="CENTER" layoutX="292.0" layoutY="164.0" prefHeight="44.0" prefWidth="862.0" promptText="Escribe tu pregunta">
          <font>
-            <Font name="Arial Rounded MT Bold" size="50.0" />
-         </font>
-      </Label>
-   </Pane>
-   <VBox layoutX="35.0" layoutY="41.0" prefHeight="618.0" prefWidth="185.0" style="-fx-background-color: #505050;">
-      <TableView fx:id="tablePreguntas" prefHeight="618.0" prefWidth="185.0">
-         <columns>
-            <TableColumn fx:id="columnPreguntas" prefWidth="184.0" text="Preguntas" />
-         </columns>
-      </TableView>
-   </VBox>
-   <TextField fx:id="txtPregunta" alignment="CENTER" layoutX="292.0" layoutY="164.0" prefHeight="44.0" prefWidth="862.0" promptText="Escribe tu pregunta">
-      <font>
-         <Font name="Arial Rounded MT Bold" size="20.0" />
-      </font>
-   </TextField>
-   <Pane fx:id="paneRed" layoutX="303.0" layoutY="272.0" prefHeight="97.0" prefWidth="382.0" style="-fx-background-color: #FF8383;">
-      <TextField fx:id="txtRed" layoutX="77.0" layoutY="15.0" prefHeight="67.0" prefWidth="248.0" promptText="Respuesta" style="-fx-background-color: #FF8383;">
-         <font>
-            <Font name="Arial Rounded MT Bold" size="15.0" />
-         </font>
-      </TextField>
-      <CheckBox fx:id="checkRed" layoutX="340.0" layoutY="38.0" mnemonicParsing="false" />
-      <Polygon fill="WHITE" layoutX="29.0" layoutY="59.0" scaleX="0.3" scaleY="0.3" stroke="BLACK" strokeType="INSIDE">
-         <points>
-            <Double fx:value="-50.0" />
-            <Double fx:value="40.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="40.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="-60.0" />
-         </points>
-      </Polygon>
-   </Pane>
-   <Pane fx:id="paneBlue" layoutX="761.0" layoutY="272.0" prefHeight="97.0" prefWidth="382.0" style="-fx-background-color: #83B3FF;">
-      <TextField fx:id="txtBlue" layoutX="77.0" layoutY="15.0" prefHeight="67.0" prefWidth="248.0" promptText="Respuesta" style="-fx-background-color: #83B3FF;">
-         <font>
-            <Font name="Arial Rounded MT Bold" size="15.0" />
+            <Font name="Arial Rounded MT Bold" size="20.0" />
          </font>
       </TextField>
-      <CheckBox fx:id="checkBlue" layoutX="340.0" layoutY="38.0" mnemonicParsing="false" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" layoutX="20.0" layoutY="34.0" rotate="-45.0" stroke="BLACK" strokeType="INSIDE" width="30.0" />
-   </Pane>
-   <Pane fx:id="paneGreen" layoutX="761.0" layoutY="407.0" prefHeight="97.0" prefWidth="382.0" style="-fx-background-color: #83FF83;">
-      <TextField fx:id="txtGreen" layoutX="77.0" layoutY="15.0" prefHeight="67.0" prefWidth="248.0" promptText="Respuesta" style="-fx-background-color: #83FF83;">
+      <Pane fx:id="paneRed" layoutX="303.0" layoutY="272.0" prefHeight="97.0" prefWidth="382.0" style="-fx-background-color: #FF8383;">
+         <children>
+            <TextField fx:id="txtRed" layoutX="77.0" layoutY="15.0" prefHeight="67.0" prefWidth="248.0" promptText="Respuesta" style="-fx-background-color: #FF8383;">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="15.0" />
+               </font>
+            </TextField>
+            <CheckBox fx:id="checkRed" layoutX="340.0" layoutY="38.0" mnemonicParsing="false" />
+            <Polygon fill="WHITE" layoutX="29.0" layoutY="59.0" scaleX="0.3" scaleY="0.3" stroke="BLACK" strokeType="INSIDE">
+               <points>
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="40.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="40.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-60.0" />
+               </points>
+            </Polygon>
+         </children>
+      </Pane>
+      <Pane fx:id="paneBlue" layoutX="761.0" layoutY="272.0" prefHeight="97.0" prefWidth="382.0" style="-fx-background-color: #83B3FF;">
+         <children>
+            <TextField fx:id="txtBlue" layoutX="77.0" layoutY="15.0" prefHeight="67.0" prefWidth="248.0" promptText="Respuesta" style="-fx-background-color: #83B3FF;">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="15.0" />
+               </font>
+            </TextField>
+            <CheckBox fx:id="checkBlue" layoutX="340.0" layoutY="38.0" mnemonicParsing="false" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" layoutX="20.0" layoutY="34.0" rotate="-45.0" stroke="BLACK" strokeType="INSIDE" width="30.0" />
+         </children>
+      </Pane>
+      <Pane fx:id="paneGreen" layoutX="761.0" layoutY="407.0" prefHeight="97.0" prefWidth="382.0" style="-fx-background-color: #83FF83;">
+         <children>
+            <TextField fx:id="txtGreen" layoutX="77.0" layoutY="15.0" prefHeight="67.0" prefWidth="248.0" promptText="Respuesta" style="-fx-background-color: #83FF83;">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="15.0" />
+               </font>
+            </TextField>
+            <CheckBox fx:id="checkGreen" layoutX="340.0" layoutY="38.0" mnemonicParsing="false" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" layoutX="14.0" layoutY="34.0" stroke="BLACK" strokeType="INSIDE" width="30.0" />
+         </children>
+      </Pane>
+      <Pane fx:id="paneYellow" layoutX="303.0" layoutY="407.0" prefHeight="97.0" prefWidth="382.0" style="-fx-background-color: #FFF683;">
+         <children>
+            <TextField fx:id="txtYellow" layoutX="77.0" layoutY="15.0" prefHeight="67.0" prefWidth="248.0" promptText="Respuesta" style="-fx-background-color: #FFF683;">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="15.0" />
+               </font>
+            </TextField>
+            <CheckBox fx:id="checkYellow" layoutX="340.0" layoutY="38.0" mnemonicParsing="false" />
+            <Circle fill="WHITE" layoutX="32.0" layoutY="49.0" radius="18.0" stroke="BLACK" strokeType="INSIDE" />
+         </children>
+      </Pane>
+      <Button fx:id="btnGuardar" layoutX="860.0" layoutY="533.0" mnemonicParsing="false" onAction="#onAddQuestionButtonClick" prefHeight="45.0" prefWidth="185.0" text="Guardar">
          <font>
-            <Font name="Arial Rounded MT Bold" size="15.0" />
+            <Font name="Arial Rounded MT Bold" size="21.0" />
          </font>
-      </TextField>
-      <CheckBox fx:id="checkGreen" layoutX="340.0" layoutY="38.0" mnemonicParsing="false" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" layoutX="14.0" layoutY="34.0" stroke="BLACK" strokeType="INSIDE" width="30.0" />
-   </Pane>
-   <Pane fx:id="paneYellow" layoutX="303.0" layoutY="407.0" prefHeight="97.0" prefWidth="382.0" style="-fx-background-color: #FFF683;">
-      <TextField fx:id="txtYellow" layoutX="77.0" layoutY="15.0" prefHeight="67.0" prefWidth="248.0" promptText="Respuesta" style="-fx-background-color: #FFF683;">
+      </Button>
+      <Button fx:id="btnVolver" layoutX="860.0" layoutY="599.0" mnemonicParsing="false" onAction="#onReturnButtonClick" prefHeight="45.0" prefWidth="185.0" text="Volver">
          <font>
-            <Font name="Arial Rounded MT Bold" size="15.0" />
+            <Font name="Arial Rounded MT Bold" size="21.0" />
          </font>
-      </TextField>
-      <CheckBox fx:id="checkYellow" layoutX="340.0" layoutY="38.0" mnemonicParsing="false" />
-      <Circle fill="WHITE" layoutX="32.0" layoutY="49.0" radius="18.0" stroke="BLACK" strokeType="INSIDE" />
-   </Pane>
-   <Button fx:id="btnAgregar" layoutX="402.0" layoutY="571.0" mnemonicParsing="false" onAction="#onAddQuestionButtonClick" prefHeight="45.0" prefWidth="185.0" text="Guardar">
-      <font>
-         <Font name="Arial Rounded MT Bold" size="21.0" />
-      </font>
-   </Button>
-   <Button fx:id="btnVolver" layoutX="860.0" layoutY="571.0" mnemonicParsing="false" onAction="#onReturnButtonClick" prefHeight="45.0" prefWidth="185.0" text="Volver">
-      <font>
-         <Font name="Arial Rounded MT Bold" size="21.0" />
-      </font>
-   </Button>
+      </Button>
+      <Button fx:id="btnAgregar" layoutX="402.0" layoutY="533.0" mnemonicParsing="false" onAction="#onAddQuestionButtonClick" prefHeight="45.0" prefWidth="185.0" text="Agregar">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="21.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnEliminar" layoutX="402.0" layoutY="599.0" mnemonicParsing="false" onAction="#onAddQuestionButtonClick" prefHeight="45.0" prefWidth="185.0" text="Eliminar">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="21.0" />
+         </font>
+      </Button>
+   </children>
 </AnchorPane>
