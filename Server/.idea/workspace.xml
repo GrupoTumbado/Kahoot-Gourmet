@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="66f0ee7f-824c-40b6-8318-ecffe5833959" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/server/controllers/MainScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/server/controllers/MainScreenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/src/main/java/pw/espana/kahootgourmet/client/controllers/QuestionResultsScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/java/pw/espana/kahootgourmet/client/controllers/QuestionResultsScreenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +90,7 @@
       <workItem from="1682960707969" duration="3142000" />
       <workItem from="1683223899388" duration="12884000" />
       <workItem from="1683308130861" duration="20282000" />
-      <workItem from="1683346868350" duration="13342000" />
+      <workItem from="1683346868350" duration="13797000" />
     </task>
     <servers />
   </component>

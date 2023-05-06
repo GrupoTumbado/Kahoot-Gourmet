@@ -5,12 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="108bf945-86f5-4f9f-92c0-e1adc1dbbc3b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/commons/game/Answer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/commons/game/Answer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/commons/game/Question.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/commons/game/Question.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/commons/game/Questionnaire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/commons/game/Questionnaire.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/client/controllers/QuestionResultsScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/client/controllers/QuestionResultsScreenController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/prueba.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/prueba.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/pw/espana/kahootgourmet/server/controllers/MainScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/pw/espana/kahootgourmet/server/controllers/MainScreenController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,6 +50,8 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ianes\Documents\GitHub\Kahoot-Gourmet\Client\src\main\java\pw\espana\kahootgourmet" />
+      <recent name="C:\Users\ianes\Documents\GitHub\Kahoot-Gourmet\Client\src\main\java\pw\espana\kahootgourmet\commons" />
       <recent name="C:\Users\ianes\Documents\GitHub\Kahoot-Gourmet\Client\src\main\java\pw\espana\kahootgourmet\client" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -85,7 +83,7 @@
       <workItem from="1682883076190" duration="5527000" />
       <workItem from="1683235108655" duration="5441000" />
       <workItem from="1683308096829" duration="17841000" />
-      <workItem from="1683346873511" duration="10999000" />
+      <workItem from="1683346873511" duration="11209000" />
     </task>
     <servers />
   </component>

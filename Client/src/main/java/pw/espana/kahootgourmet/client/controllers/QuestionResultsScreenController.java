@@ -26,8 +26,8 @@ public class QuestionResultsScreenController {
             circleResultado.setFill(Paint.valueOf("#FF5F4E"));
         }
 
-        lblPuntosObtenidos.setText(String.valueOf(questionResultsScreenRequest.getPointsGained()));
-        lblPuesto.setText(String.valueOf(questionResultsScreenRequest.getPlace()));
+        lblPuntosObtenidos.setText("Puntos obtenidos: " + questionResultsScreenRequest.getPointsGained());
+        lblPuesto.setText("Puesto:" + questionResultsScreenRequest.getPlace());
     }
 
     public void setStage(Stage stage) {
