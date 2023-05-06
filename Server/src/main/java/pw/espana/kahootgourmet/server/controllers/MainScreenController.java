@@ -11,12 +11,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import pw.espana.kahootgourmet.commons.game.Answer;
+import pw.espana.kahootgourmet.commons.game.Question;
+import pw.espana.kahootgourmet.commons.game.Questionnaire;
+import pw.espana.kahootgourmet.server.ScreenSwitcher;
 import pw.espana.kahootgourmet.server.ServerApplication;
-import pw.espana.kahootgourmet.server.game.Answer;
-import pw.espana.kahootgourmet.server.game.Question;
-import pw.espana.kahootgourmet.server.game.Questionnaire;
 
 public class MainScreenController {
+    private Stage stage;
     @FXML
     private TextField txtPIN;
     @FXML
@@ -26,6 +28,10 @@ public class MainScreenController {
     protected void initialize()  {
         txtPIN.setText(String.valueOf(ThreadLocalRandom.current().nextInt(1000000, 9999999 + 1)));
         txtPuerto.setText("60420");
+    }
+
+    public void onLoad()  {
+        txtPIN.setText(String.valueOf(ThreadLocalRandom.current().nextInt(1000000, 9999999 + 1)));
     }
 
     @FXML
@@ -38,19 +44,15 @@ public class MainScreenController {
 
         if (!ServerApplication.startServer(Integer.parseInt(txtPuerto.getText()), Integer.parseInt(txtPIN.getText()), "prueba.bin")) return;
 
-        Parent root = FXMLLoader.load(Objects.requireNonNull(ServerApplication.class.getResource("start-game-view.fxml")));
-        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        ScreenSwitcher.showStartGameScene();
     }
 
     @FXML
     protected void onEditorButtonClick(ActionEvent actionEvent) throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(ServerApplication.class.getResource("quiz-editor-view.fxml")));
-        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        ScreenSwitcher.showQuizEditorScene();
+    }
+
+    public void setStage(Stage stage) {
+        this.stage = stage;
     }
 }

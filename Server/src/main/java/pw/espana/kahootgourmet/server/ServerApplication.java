@@ -1,20 +1,22 @@
 package pw.espana.kahootgourmet.server;
 
 import javafx.application.Application;
+import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import pw.espana.kahootgourmet.server.game.Question;
-import pw.espana.kahootgourmet.server.game.Questionnaire;
+import pw.espana.kahootgourmet.commons.game.Question;
+import pw.espana.kahootgourmet.commons.game.Questionnaire;
 
 import java.io.IOException;
 import java.net.ServerSocket;
-import java.util.Set;
 import java.util.TreeSet;
 
 public class ServerApplication extends Application {
-    private static final TreeSet<ServerUserThread> serverUserThreads = new TreeSet<>();
-    private static int state = 0; // Defines the state of the state machine. State 0 is a standby state, state 99 is a termination state
+    private static final ObservableList<ServerUserThread> serverUserThreads = FXCollections.observableArrayList(new TreeSet<>());
+    private static StateId state = StateId.IDLE; // Defines the state of the state machine. State 0 is a standby state, state 99 is a termination state
     private static int pin = 0;
     private static Questionnaire questionnaire;
     private static ServerSocket serverSocket;
@@ -22,25 +24,28 @@ public class ServerApplication extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(ServerApplication.class.getResource("main-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 1200, 700);
-        stage.setTitle("Kahoot Gourmet");
-        stage.setScene(scene);
-        stage.show();
+        stage.setTitle("Kahoot Gourmet - Server");
+        stage.setOnCloseRequest(event -> {
+            // Call the stop() method to properly terminate the application
+            Platform.exit();
+        });
+        ScreenSwitcher.initScreenSwitcher(stage);
+        ScreenSwitcher.showMainScene();
     }
 
     @Override
     public void stop() throws IOException {
+        ScreenSwitcher.terminate();
         closeServer();
     }
 
     public static boolean startServer(int port, int pin, String pathToQuestionnaire) {
         ServerApplication.pin = pin;
-        state = 1;
+        state = StateId.LISTENING_FOR_CONNECTIONS;
         questionnaire = Questionnaire.loadFromFile(pathToQuestionnaire);
 
         if (questionnaire == null) {
-            state = 0;
+            state = StateId.IDLE;
             return false;
         }
 
@@ -62,13 +67,14 @@ public class ServerApplication extends Application {
     public static void closeServer() throws IOException {
         for (ServerUserThread serverUserThread : serverUserThreads) {
             try {
-                serverUserThread.closeRequest();
-            } catch (Exception e) {
-                System.err.println(e);
-            }
+                if (serverUserThread != null && serverUserThread.isAlive()) {
+                    serverUserThread.closeRequest();
+                }
+            } catch (Exception e) {}
         }
 
-        state = 0;
+        serverUserThreads.clear();
+        state = StateId.IDLE;
         questionnaire = null;
         if (serverSocket != null && serverSocket.isBound()) {
             serverSocket.close();
@@ -79,11 +85,11 @@ public class ServerApplication extends Application {
         serverThread.interrupt();
     }
 
-    public static int getState() {
+    public static StateId getState() {
         return state;
     }
 
-    public static void setState(int state) {
+    public static void setState(StateId state) {
         ServerApplication.state = state;
     }
 
@@ -103,7 +109,7 @@ public class ServerApplication extends Application {
         serverUserThreads.add(serverUserThread);
     }
 
-    public static Set<ServerUserThread> getConnectedUsers() {
+    public static ObservableList<ServerUserThread> getConnectedUsers() {
         return serverUserThreads;
     }
 

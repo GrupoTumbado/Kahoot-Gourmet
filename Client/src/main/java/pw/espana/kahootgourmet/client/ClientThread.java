@@ -1,18 +1,21 @@
 package pw.espana.kahootgourmet.client;
 
-import pw.espana.kahootgourmet.client.messages.Message;
-import pw.espana.kahootgourmet.client.messages.MessageId;
-import pw.espana.kahootgourmet.client.messages.client.requests.JoinRequest;
-import pw.espana.kahootgourmet.client.messages.client.responses.MessageResponse;
+import pw.espana.kahootgourmet.client.controllers.LoginScreenScreenController;
+import pw.espana.kahootgourmet.commons.messages.Message;
+import pw.espana.kahootgourmet.commons.messages.MessageId;
+import pw.espana.kahootgourmet.commons.messages.client.requests.CloseConnectionRequest;
+import pw.espana.kahootgourmet.commons.messages.client.requests.JoinRequest;
+import pw.espana.kahootgourmet.commons.messages.client.responses.MessageResponse;
+import pw.espana.kahootgourmet.commons.messages.server.responses.JoinResponse;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
-import java.net.SocketException;
-import java.time.Duration;
+import java.net.SocketTimeoutException;
 
 public class ClientThread extends Thread {
+    private boolean shouldStop;
     private Socket socket;
     private ObjectInputStream reader;
     private ObjectOutputStream writer;
@@ -20,28 +23,40 @@ public class ClientThread extends Thread {
     private final int port;
     private final String username;
     private final int pin;
+    private LoginScreenScreenController loginScreenController;
 
     public ClientThread(String ip, int port, String username, int pin) throws Exception {
         this.ip = ip;
         this.port = port;
         this.username = username;
         this.pin = pin;
-
-        socket = new Socket(ip, port);
-        reader = new ObjectInputStream(socket.getInputStream());
-        writer = new ObjectOutputStream(socket.getOutputStream());
-
-        System.out.println("Attempting to login into " + ip + ":" + port);
-        writer.writeObject(new JoinRequest(pin, username));
     }
 
     @Override
     public void run() {
         try {
-            Object obj;
+            socket = new Socket(ip, port);
+            socket.setSoTimeout(100);
+            writer = new ObjectOutputStream(socket.getOutputStream());
+            writer.flush();
+            reader = new ObjectInputStream(socket.getInputStream());
+
+            System.out.println("Attempting to login into " + ip + ":" + port);
+            writer.writeObject(new JoinRequest(pin, username));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        try {
+            Object obj = null;
             do {
-                obj = reader.readObject();
-            } while (processMessage(obj) != MessageId.CLIENT_CLOSE_CONNECTION_REQUEST.getValue());
+                try {
+                    obj = reader.readObject();
+                }
+                catch (SocketTimeoutException e) {}
+            } while (processMessage(obj) != MessageId.SERVER_CLOSE_CONNECTION_REQUEST.getValue() && !shouldStop);
+
+            closeConnection();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -56,20 +71,39 @@ public class ClientThread extends Thread {
         switch (MessageId.valueOf(message.getId())) {
             case SERVER_DEBUG_REQUEST, SERVER_DEBUG_RESPONSE -> { // Handle debug messages
                 this.writer.writeObject(new MessageResponse());
-                System.out.println("Received test message from client");
+                System.out.println("Received test message from server");
             }
             case SERVER_JOIN_RESPONSE -> {
-                /*
-                Parent root = FXMLLoader.load(Objects.requireNonNull(ClientApplication.class.getResource("loading-screen-view.fxml")));
-                Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-                Scene scene = new Scene(root);
-                stage.setScene(scene);
-                stage.show();
-                */
+                JoinResponse joinResponse = (JoinResponse) message;
+
+                if (joinResponse.isJoined()) {
+                    ScreenSwitcher.showLoadingScene();
+                } else {
+                    loginScreenController.setTxtError(joinResponse.getErrorMessage());
+                }
             }
+            case SERVER_CLOSE_CONNECTION_REQUEST -> closeConnection();
             default -> System.err.println("Unknown message");
         }
 
         return message.getId();
+    }
+
+    public void closeRequest() throws IOException {
+        shouldStop = true;
+        System.out.println("Closed connection from " + socket.getInetAddress());
+        this.writer.writeObject(new CloseConnectionRequest());
+        closeConnection();
+    }
+
+    public void closeConnection() throws IOException {
+        reader.close();
+        writer.close();
+        socket.close();
+        ScreenSwitcher.showLoginScene();
+    }
+
+    public void setLoginController(LoginScreenScreenController loginScreenController) {
+        this.loginScreenController = loginScreenController;
     }
 }

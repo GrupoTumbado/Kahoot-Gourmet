@@ -1,6 +1,6 @@
 package pw.espana.kahootgourmet.server;
 
-import pw.espana.kahootgourmet.server.game.Questionnaire;
+import pw.espana.kahootgourmet.commons.game.Questionnaire;
 
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -33,46 +33,39 @@ public class ServerThread extends Thread {
     public void startServer() throws Exception {
         while (true) {
             switch (ServerApplication.getState()) {
-                case 1 -> {
+                case LISTENING_FOR_CONNECTIONS -> {
                     try {
                         Socket socket = serverSocket.accept();
                         ServerUserThread worker = new ServerUserThread(socket);
-                        ServerApplication.addConnectedUsers(worker);
                         worker.start();
                     } catch (SocketTimeoutException e) {}
                 }
-                case 2 -> {
+                case SHOWING_QUESTION -> {
                     ServerApplication.clientDisplayLoadingScreen(questionnaire.getWaitTime());
-
-                    try (ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1)) {
-                        scheduler.schedule(() -> {
-                            ServerApplication.setState(3);
-                        }, questionnaire.getWaitTime(), TimeUnit.SECONDS);
-                    } catch (Exception e) {
-                        System.out.println("Error in the server: " + e.getMessage());
-                        e.printStackTrace();
-                    }
-
-                    ServerApplication.setState(0);
+                    ScreenSwitcher.showQuestionScene();
+                    ServerApplication.setState(StateId.IDLE);
                 }
-                case 3 -> {
+                case SHOWING_QUESTION_AND_ANSWERS -> {
                     ServerApplication.clientEnableAnswerIntake(questionnaire.getCurrentQuestion());
-
-                    try (ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1)) {
-                        scheduler.schedule(() -> {
-                            ServerApplication.setState(4);
-                        }, questionnaire.getAnswerTime(), TimeUnit.SECONDS);
-                    } catch (Exception e) {
-                        System.out.println("Error in the server: " + e.getMessage());
-                        e.printStackTrace();
-                    }
-
-                    ServerApplication.setState(0);
+                    ScreenSwitcher.showQuestionAnswersScene();
+                    ServerApplication.setState(StateId.IDLE);
                 }
-                case 4 -> {
+                case SHOWING_ANSWER -> {
                     ServerApplication.clientSendAnswerResults();
-                    questionnaire.advanceQuestion();
-                    ServerApplication.setState(0);
+                    ScreenSwitcher.showAnswerScene();
+                    ServerApplication.setState(StateId.IDLE);
+                }
+                case HANDLE_NEXT_QUESTION -> {
+                    if (questionnaire.moreQuestionsAvailable()) {
+                        questionnaire.advanceQuestion();
+                        ServerApplication.setState(StateId.SHOWING_QUESTION);
+                    } else {
+                        ServerApplication.setState(StateId.SHOWING_SCOREBOARD);
+                    }
+                }
+                case SHOWING_SCOREBOARD -> {
+                    // TODO: Send the scoreboard to the client
+                    ScreenSwitcher.showScoreboardScene();
                 }
                 default -> {}
             }

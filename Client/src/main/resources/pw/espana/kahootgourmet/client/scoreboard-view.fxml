@@ -8,18 +8,16 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pw.espana.kahootgourmet.client.controllers.PosicionController">
-   <children>
-      <ImageView fitHeight="700.0" fitWidth="1200.0" opacity="0.78">
-         <image>
-            <Image url="@images/salon.jpg" />
-         </image>
-      </ImageView>
-      <Label layoutX="398.0" layoutY="184.0" prefHeight="52.0" prefWidth="404.0" text="!Magistralmente jugado!" wrapText="true">
-         <font>
-            <Font name="Georgia Bold" size="31.0" />
-         </font>
-      </Label>
-      <Label fx:id="label_usuario" layoutX="490.0" layoutY="269.0" prefHeight="52.0" prefWidth="221.0" />
-   </children>
+<AnchorPane prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="pw.espana.kahootgourmet.client.controllers.ScoreboardScreenController">
+   <ImageView fitHeight="700.0" fitWidth="1200.0" opacity="0.78">
+      <Image url="@images/salon.jpg"/>
+   </ImageView>
+   <Label layoutX="398.0" layoutY="184.0" prefHeight="52.0" prefWidth="404.0" text="!Magistralmente jugado!"
+          wrapText="true">
+      <font>
+         <Font name="Georgia Bold" size="31.0"/>
+      </font>
+   </Label>
+   <Label fx:id="label_usuario" layoutX="490.0" layoutY="269.0" prefHeight="52.0" prefWidth="221.0"/>
 </AnchorPane>

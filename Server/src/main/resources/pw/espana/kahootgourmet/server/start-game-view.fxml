@@ -11,7 +11,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0"
             prefWidth="1200.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8"
             xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="pw.espana.kahootgourmet.server.controllers.StartGameController">
+            fx:controller="pw.espana.kahootgourmet.server.controllers.StartGameScreenController">
    <Pane prefHeight="700.0" prefWidth="1200.0" style="-fx-background-color: black;" AnchorPane.bottomAnchor="0.0"
          AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <ImageView fitHeight="706.0" fitWidth="1208.0" layoutX="-8.0" layoutY="-3.0" pickOnBounds="true"

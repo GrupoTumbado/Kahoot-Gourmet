@@ -13,6 +13,6 @@ module pw.espana.kahootgourmet.server {
     exports pw.espana.kahootgourmet.server;
     opens pw.espana.kahootgourmet.server.controllers to javafx.fxml;
     exports pw.espana.kahootgourmet.server.controllers;
-    exports pw.espana.kahootgourmet.server.game;
-    exports pw.espana.kahootgourmet.server.messages;
+    exports pw.espana.kahootgourmet.commons.game;
+    exports pw.espana.kahootgourmet.commons.messages;
 }

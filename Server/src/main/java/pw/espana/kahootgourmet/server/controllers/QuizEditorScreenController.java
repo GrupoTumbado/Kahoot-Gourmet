@@ -9,12 +9,14 @@ import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import pw.espana.kahootgourmet.server.ScreenSwitcher;
 import pw.espana.kahootgourmet.server.ServerApplication;
 
 import java.io.IOException;
 import java.util.Objects;
 
 public class QuizEditorScreenController {
+    private Stage stage;
     @FXML
     private TextField txtPregunta;
     @FXML
@@ -36,14 +38,14 @@ public class QuizEditorScreenController {
 
     @FXML
     protected void onReturnButtonClick(ActionEvent actionEvent) throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(ServerApplication.class.getResource("main-view.fxml")));
-        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        ScreenSwitcher.showMainScene();
     }
 
     @FXML
     protected void onAddQuestionButtonClick(ActionEvent actionEvent) {
+    }
+
+    public void setStage(Stage stage) {
+        this.stage = stage;
     }
 }

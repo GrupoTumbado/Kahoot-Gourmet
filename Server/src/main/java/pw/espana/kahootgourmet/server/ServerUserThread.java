@@ -1,26 +1,31 @@
 package pw.espana.kahootgourmet.server;
 
-import pw.espana.kahootgourmet.server.game.Answer;
-import pw.espana.kahootgourmet.server.game.Question;
-import pw.espana.kahootgourmet.server.game.User;
-import pw.espana.kahootgourmet.server.messages.Message;
-import pw.espana.kahootgourmet.server.messages.MessageId;
-import pw.espana.kahootgourmet.server.messages.client.requests.AnswerRequest;
-import pw.espana.kahootgourmet.server.messages.client.requests.JoinRequest;
-import pw.espana.kahootgourmet.server.messages.server.requests.AnswerResultsScreenRequest;
-import pw.espana.kahootgourmet.server.messages.server.requests.ChoiceScreenRequest;
-import pw.espana.kahootgourmet.server.messages.server.requests.LoadingScreenRequest;
-import pw.espana.kahootgourmet.server.messages.server.responses.JoinResponse;
-import pw.espana.kahootgourmet.server.messages.server.responses.MessageResponse;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+import pw.espana.kahootgourmet.commons.game.Answer;
+import pw.espana.kahootgourmet.commons.game.Question;
+import pw.espana.kahootgourmet.commons.game.User;
+import pw.espana.kahootgourmet.commons.messages.Message;
+import pw.espana.kahootgourmet.commons.messages.MessageId;
+import pw.espana.kahootgourmet.commons.messages.client.requests.AnswerRequest;
+import pw.espana.kahootgourmet.commons.messages.client.requests.JoinRequest;
+import pw.espana.kahootgourmet.commons.messages.server.requests.AnswerResultsScreenRequest;
+import pw.espana.kahootgourmet.commons.messages.server.requests.ChoiceScreenRequest;
+import pw.espana.kahootgourmet.commons.messages.server.requests.CloseConnectionRequest;
+import pw.espana.kahootgourmet.commons.messages.server.requests.LoadingScreenRequest;
+import pw.espana.kahootgourmet.commons.messages.server.responses.JoinResponse;
+import pw.espana.kahootgourmet.commons.messages.server.responses.MessageResponse;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.net.SocketTimeoutException;
 import java.time.Duration;
 import java.time.Instant;
 
 public class ServerUserThread extends Thread implements Comparable<ServerUserThread> {
+    private boolean shouldStop;
     private final Socket socket;
     private User user;
     private Question question;
@@ -38,13 +43,18 @@ public class ServerUserThread extends Thread implements Comparable<ServerUserThr
     public void run() {
         try {
             System.out.println("New connection from " + socket.getInetAddress());
-            reader = new ObjectInputStream(socket.getInputStream());
             writer = new ObjectOutputStream(socket.getOutputStream());
+            writer.flush();
+            reader = new ObjectInputStream(socket.getInputStream());
 
-            Object obj;
+            Object obj = null;
             do {
-                obj = reader.readObject();
-            } while (processMessage(obj) != MessageId.CLIENT_CLOSE_CONNECTION_REQUEST.getValue());
+                try {
+                    obj = reader.readObject();
+                } catch (SocketTimeoutException e) {}
+            } while (processMessage(obj) != MessageId.CLIENT_CLOSE_CONNECTION_REQUEST.getValue() && !shouldStop);
+
+            closeConnection();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -79,6 +89,7 @@ public class ServerUserThread extends Thread implements Comparable<ServerUserThr
 
                 user = new User(joinRequest.getUsername());
                 this.writer.writeObject(new JoinResponse(ServerApplication.getQuestionnaireSize(), ServerApplication.getQuestionnaireAnswerTime()));
+                ServerApplication.addConnectedUsers(this);
             }
             case CLIENT_ANSWER_REQUEST -> { // Handle answer to question from client
                 if (question == null || answerRequest != null) break; // Check if we have a valid question, and if the client has not answered
@@ -95,7 +106,7 @@ public class ServerUserThread extends Thread implements Comparable<ServerUserThr
                     user.addScore(pointsGained);
                 }
             }
-            case CLIENT_CLOSE_CONNECTION_REQUEST -> closeRequest();
+            case CLIENT_CLOSE_CONNECTION_REQUEST -> closeConnection();
             default -> System.err.println("Unknown message");
         }
 
@@ -103,14 +114,21 @@ public class ServerUserThread extends Thread implements Comparable<ServerUserThr
     }
 
     public void closeRequest() throws IOException {
+        shouldStop = true;
         System.out.println("Closed connection from " + socket.getInetAddress());
+        this.writer.writeObject(new CloseConnectionRequest());
+        closeConnection();
+    }
+
+    public void closeConnection() throws IOException {
         ServerApplication.removeUserThread(this);
+        reader.close();
+        writer.close();
         socket.close();
     }
 
     private int rejectConnection(String message) throws Exception {
         this.writer.writeObject(new JoinResponse(message));
-        sleep(1000); // We wait for a little bit before closing the connection so the client can process the rejection message
         closeRequest();
         return MessageId.CLIENT_CLOSE_CONNECTION_REQUEST.getValue();
     }
@@ -132,5 +150,9 @@ public class ServerUserThread extends Thread implements Comparable<ServerUserThr
 
     public String getUsername() {
         return user.getUsername();
+    }
+
+    public StringProperty usernameProperty() {
+        return new SimpleStringProperty(user.getUsername());
     }
 }
