@@ -43,6 +43,7 @@ public class Questionnaire implements Serializable {
     public void addQuestion(Question question) {
         questions.add(question);
     }
+    public void eraseQuestion(Question question){questions.remove(question);}
 
     public int getAnswerTime() {
         return answerTime;
