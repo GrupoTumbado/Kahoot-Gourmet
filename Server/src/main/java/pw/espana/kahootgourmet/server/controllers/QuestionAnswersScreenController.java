@@ -27,7 +27,7 @@ public class QuestionAnswersScreenController {
     private Label answerGreen;
     private int remainingSeconds = 60;
 
-    public void onLoad()  {
+    public void onLoad() {
         Question currentQuestion = ServerApplication.getQuestionnaire().getCurrentQuestion();
         remainingSeconds = ServerApplication.getQuestionnaireAnswerTime();
 

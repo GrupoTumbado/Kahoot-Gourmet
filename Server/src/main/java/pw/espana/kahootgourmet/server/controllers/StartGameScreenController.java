@@ -30,7 +30,7 @@ public class StartGameScreenController {
     private TableColumn<ServerUserThread, String> columnJugadores;
 
     @FXML
-    public void onLoad()  {
+    public void onLoad() {
         txtPIN.setText(String.valueOf(ServerApplication.getPin()));
         tableJugadores.setItems(ServerApplication.getConnectedUsers());
         columnJugadores.setCellValueFactory(data -> data.getValue().usernameProperty());

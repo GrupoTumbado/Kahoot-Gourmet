@@ -93,6 +93,14 @@ public class ServerApplication extends Application {
         ServerApplication.state = state;
     }
 
+    public static ObservableList<ServerUserThread> getConnectedUsers() {
+        return serverUserThreads;
+    }
+
+    public static void addConnectedUsers(ServerUserThread serverUserThread) {
+        serverUserThreads.add(serverUserThread);
+    }
+
     public static void removeUserThread(ServerUserThread worker) {
         serverUserThreads.remove(worker);
     }
@@ -103,14 +111,6 @@ public class ServerApplication extends Application {
         }
 
         return false;
-    }
-
-    public static void addConnectedUsers(ServerUserThread serverUserThread) {
-        serverUserThreads.add(serverUserThread);
-    }
-
-    public static ObservableList<ServerUserThread> getConnectedUsers() {
-        return serverUserThreads;
     }
 
     public static Questionnaire getQuestionnaire() {

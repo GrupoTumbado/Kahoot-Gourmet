@@ -34,7 +34,7 @@ public class AnswerScreenController {
     @FXML
     private Label answerGreen;
 
-    public void onLoad()  {
+    public void onLoad() {
         Question currentQuestion = ServerApplication.getQuestionnaire().getCurrentQuestion();
         lblPregunta.setText(currentQuestion.question());
 

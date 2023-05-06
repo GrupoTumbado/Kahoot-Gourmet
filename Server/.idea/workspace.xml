@@ -6,15 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="66f0ee7f-824c-40b6-8318-ecffe5833959" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../Client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/src/main/resources/pw/espana/kahootgourmet/client/buttons-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/resources/pw/espana/kahootgourmet/client/buttons-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/server/ScreenSwitcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/server/ScreenSwitcher.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/server/ServerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/server/ServerApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/server/ServerUserThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/server/ServerUserThread.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/server/controllers/AnswerScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/server/controllers/AnswerScreenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/server/controllers/MainScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/server/controllers/MainScreenController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/server/controllers/QuestionAnswersScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/server/controllers/QuestionAnswersScreenController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/server/controllers/QuestionScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/server/controllers/QuestionScreenController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/pw/espana/kahootgourmet/server/answer-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/pw/espana/kahootgourmet/server/answer-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/pw/espana/kahootgourmet/server/question-answers-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/pw/espana/kahootgourmet/server/question-answers-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +94,7 @@
       <workItem from="1682960707969" duration="3142000" />
       <workItem from="1683223899388" duration="12884000" />
       <workItem from="1683308130861" duration="20282000" />
-      <workItem from="1683346868350" duration="837000" />
+      <workItem from="1683346868350" duration="3347000" />
     </task>
     <servers />
   </component>
