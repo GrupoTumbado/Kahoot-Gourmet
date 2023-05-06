@@ -9,10 +9,7 @@ import pw.espana.kahootgourmet.commons.messages.Message;
 import pw.espana.kahootgourmet.commons.messages.MessageId;
 import pw.espana.kahootgourmet.commons.messages.client.requests.AnswerRequest;
 import pw.espana.kahootgourmet.commons.messages.client.requests.JoinRequest;
-import pw.espana.kahootgourmet.commons.messages.server.requests.AnswerResultsScreenRequest;
-import pw.espana.kahootgourmet.commons.messages.server.requests.ChoiceScreenRequest;
-import pw.espana.kahootgourmet.commons.messages.server.requests.CloseConnectionRequest;
-import pw.espana.kahootgourmet.commons.messages.server.requests.LoadingScreenRequest;
+import pw.espana.kahootgourmet.commons.messages.server.requests.*;
 import pw.espana.kahootgourmet.commons.messages.server.responses.JoinResponse;
 import pw.espana.kahootgourmet.commons.messages.server.responses.MessageResponse;
 
@@ -105,6 +102,8 @@ public class ServerUserThread extends Thread implements Comparable<ServerUserThr
 
                     user.addScore(pointsGained);
                 }
+
+                ServerApplication.incrementAnswerCount();
             }
             case CLIENT_CLOSE_CONNECTION_REQUEST -> closeConnection();
             default -> System.err.println("Unknown message");
@@ -144,8 +143,16 @@ public class ServerUserThread extends Thread implements Comparable<ServerUserThr
     }
 
     public void sendAnswerResults(int place) throws Exception {
-        Answer answer = question.answers()[answerRequest.getAnswer()];
-        this.writer.writeObject(new AnswerResultsScreenRequest(answer.correct(), pointsGained, user.getScore(), place));
+        if (answerRequest == null) {
+            this.writer.writeObject(new QuestionResultsScreenRequest(false, 0, user.getScore(), place));
+        } else {
+            Answer answer = question.answers()[answerRequest.getAnswer()];
+            this.writer.writeObject(new QuestionResultsScreenRequest(answer.correct(), pointsGained, user.getScore(), place));
+        }
+    }
+
+    public void sendFinalScore(int place) throws Exception {
+        this.writer.writeObject(new FinalScoreScreenRequest(place, user.getScore()));
     }
 
     public String getUsername() {

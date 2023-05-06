@@ -14,4 +14,5 @@ module pw.espana.kahootgourmet.client {
     exports pw.espana.kahootgourmet.client;
     exports pw.espana.kahootgourmet.client.controllers;
     opens pw.espana.kahootgourmet.client.controllers to javafx.fxml;
+    exports pw.espana.kahootgourmet.commons.messages.server.requests;
 }

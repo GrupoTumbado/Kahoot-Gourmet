@@ -1,36 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
-<?import java.lang.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="pw.espana.kahootgourmet.server.controllers.ScoreboardScreenController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pw.espana.kahootgourmet.server.controllers.ScoreboardScreenController">
    <children>
       <ImageView fitHeight="700.0" fitWidth="1200.0" pickOnBounds="true">
          <image>
             <Image url="@img/fondoMorado.jpeg" />
          </image>
       </ImageView>
-      <TableView fx:id="tablePlayers" layoutX="408.0" layoutY="107.0" prefHeight="444.0" prefWidth="385.0">
+      <TableView fx:id="tablePlayers" layoutX="408.0" layoutY="128.0" prefHeight="444.0" prefWidth="385.0">
         <columns>
           <TableColumn prefWidth="384.0" text="Jugadores" />
         </columns>
       </TableView>
-      <Label layoutX="380.0" layoutY="36.0" text="Resultados Finales" textFill="#d3d3d3">
+      <Label layoutX="406.0" layoutY="56.0" text="Resultados Finales" textFill="#d3d3d3">
          <font>
             <Font name="Arial Rounded MT Bold" size="48.0" />
          </font>
       </Label>
-      <Label layoutX="435.0" layoutY="562.0" text="¡Gracias por jugar!" textFill="#d3d3d3">
+      <Label layoutX="455.0" layoutY="578.0" text="¡Gracias por jugar!" textFill="#d3d3d3">
          <font>
             <Font name="Arial Rounded MT Bold" size="36.0" />
          </font>
       </Label>
-      <Label layoutX="356.0" layoutY="616.0" text="Felicidades a los ganadores" textFill="#d3d3d3">
+      <Label layoutX="383.0" layoutY="631.0" text="Felicidades a los ganadores" textFill="#d3d3d3">
          <font>
             <Font name="Arial Rounded MT Bold" size="36.0" />
          </font>

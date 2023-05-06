@@ -27,6 +27,7 @@ public class ClientApplication extends Application {
     public void stop() throws IOException {
         ScreenSwitcher.terminate();
         closeClient();
+        System.exit(0);
     }
 
     public static ClientThread joinServer(String ip, int port, String username, int pin) {
@@ -45,6 +46,10 @@ public class ClientApplication extends Application {
             clientThread.closeRequest();
             clientThread.interrupt();
         }
+    }
+
+    public static void sendAnswer(int selectedAnswer) throws IOException {
+        clientThread.sendAnswer(selectedAnswer);
     }
 
     public static void main(String[] args) {

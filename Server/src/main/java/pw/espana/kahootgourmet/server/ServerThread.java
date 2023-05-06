@@ -13,6 +13,7 @@ import java.util.concurrent.TimeUnit;
 public class ServerThread extends Thread {
     private final ServerSocket serverSocket;
     private final Questionnaire questionnaire;
+    private int answerCount = 0;
 
     public ServerThread(ServerSocket serverSocket, Questionnaire questionnaire) {
         this.serverSocket = serverSocket;
@@ -48,7 +49,12 @@ public class ServerThread extends Thread {
                 case SHOWING_QUESTION_AND_ANSWERS -> {
                     ServerApplication.clientEnableAnswerIntake(questionnaire.getCurrentQuestion());
                     ScreenSwitcher.showQuestionAnswersScene();
-                    ServerApplication.setState(StateId.IDLE);
+                    ServerApplication.setState(StateId.COUNT_ANSWERS);
+                }
+                case COUNT_ANSWERS -> {
+                    if (answerCount >= ServerApplication.getConnectedUsers().size()) {
+                        ServerApplication.setState(StateId.SHOWING_ANSWER);
+                    }
                 }
                 case SHOWING_ANSWER -> {
                     ServerApplication.clientSendAnswerResults();
@@ -64,11 +70,23 @@ public class ServerThread extends Thread {
                     }
                 }
                 case SHOWING_SCOREBOARD -> {
-                    // TODO: Send the scoreboard to the client
+                    ServerApplication.clientSendFinalScore();
                     ScreenSwitcher.showScoreboardScene();
                 }
                 default -> {}
             }
         }
+    }
+
+    public int getAnswerCount() {
+        return answerCount;
+    }
+
+    public void setAnswerCount(int answerCount) {
+        this.answerCount = answerCount;
+    }
+
+    public void incrementAnswerCount() {
+        this.answerCount++;
     }
 }

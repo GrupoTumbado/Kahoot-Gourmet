@@ -5,27 +5,36 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="pw.espana.kahootgourmet.client.controllers.ButtonsScreenController">
-    <Button fx:id="r_1" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="320.0" prefWidth="580.0"
-            style="-fx-background-color: #e21b3c;"/>
-    <Button fx:id="r_2" layoutX="606.0" layoutY="14.0" mnemonicParsing="false" prefHeight="320.0" prefWidth="580.0"
-            style="-fx-background-color: #1268cd;"/>
-    <Button fx:id="r_3" layoutX="14.0" layoutY="350.0" mnemonicParsing="false" prefHeight="320.0" prefWidth="580.0"
-            style="-fx-background-color: #d89e00;"/>
-    <Button fx:id="r_4" layoutX="606.0" layoutY="350.0" mnemonicParsing="false" prefHeight="320.0" prefWidth="580.0"
-            style="-fx-background-color: #2a8f0d;"/>
-    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="100.0" layoutX="839.0" layoutY="460.0" width="100.0"/>
-    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="100.0" layoutX="839.0" layoutY="124.0" rotate="45.0" width="100.0"/>
-    <Circle fill="WHITE" layoutX="304.0" layoutY="510.0" radius="50.0"/>
-    <Polygon fill="WHITE" layoutX="304.0" layoutY="184.0">
-      <points>
-          <Double fx:value="-50.0"/>
-          <Double fx:value="40.0"/>
-          <Double fx:value="50.0"/>
-          <Double fx:value="40.0"/>
-          <Double fx:value="0.0"/>
-          <Double fx:value="-60.0"/>
-      </points>
-    </Polygon>
+<AnchorPane prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pw.espana.kahootgourmet.client.controllers.ButtonsScreenController">
+    <Pane fx:id="paneRed" layoutX="14.0" layoutY="14.0" prefHeight="320.0" prefWidth="580.0">
+        <Button fx:id="btnRed" mnemonicParsing="false" prefHeight="320.0" prefWidth="580.0"
+                style="-fx-background-color: #e21b3c;" onAction="#onRedButtonClick"/>
+        <Polygon fill="WHITE" layoutX="290.0" layoutY="170.0">
+          <points>
+              <Double fx:value="-50.0"/>
+              <Double fx:value="40.0"/>
+              <Double fx:value="50.0"/>
+              <Double fx:value="40.0"/>
+              <Double fx:value="0.0"/>
+              <Double fx:value="-60.0"/>
+          </points>
+        </Polygon>
+    </Pane>
+    <Pane fx:id="paneBlue" layoutX="606.0" layoutY="14.0" prefHeight="320.0" prefWidth="580.0">
+        <Button fx:id="btnBlue" mnemonicParsing="false" prefHeight="320.0" prefWidth="580.0"
+                style="-fx-background-color: #1268cd;" onAction="#onBlueButtonClick"/>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="100.0" layoutX="240.0" layoutY="110.0"
+                   rotate="45.0" width="100.0"/>
+    </Pane>
+    <Pane fx:id="paneYellow" layoutX="14.0" layoutY="350.0" prefHeight="320.0" prefWidth="580.0">
+        <Button fx:id="btnYellow" mnemonicParsing="false" prefHeight="320.0" prefWidth="580.0"
+                style="-fx-background-color: #d89e00;" onAction="#onYellowButtonClick"/>
+        <Circle fill="WHITE" layoutX="290.0" layoutY="160.0" radius="50.0"/>
+    </Pane>
+    <Pane fx:id="paneGreen" layoutX="606.0" layoutY="350.0" prefHeight="320.0" prefWidth="580.0">
+        <Button fx:id="btnGreen" mnemonicParsing="false" prefHeight="320.0" prefWidth="580.0"
+                style="-fx-background-color: #2a8f0d;" onAction="#onGreenButtonClick"/>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="100.0" layoutX="240.0" layoutY="110.0"
+                   width="100.0"/>
+    </Pane>
 </AnchorPane>

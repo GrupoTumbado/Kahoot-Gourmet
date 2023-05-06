@@ -5,8 +5,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javafx.stage.Window;
 import pw.espana.kahootgourmet.client.controllers.*;
+import pw.espana.kahootgourmet.commons.messages.server.requests.FinalScoreScreenRequest;
+import pw.espana.kahootgourmet.commons.messages.server.requests.QuestionResultsScreenRequest;
 
 import java.io.IOException;
 
@@ -76,6 +77,16 @@ public class ScreenSwitcher {
         Platform.runLater(() -> {
             stage.setScene(loadingScreenScene);
             stage.show();
+            loadingScreenController.onLoad();
+        });
+    }
+
+    public static void showLoadingScene(int time) {
+        Platform.runLater(() -> {
+            stage.setScene(loadingScreenScene);
+            stage.show();
+            loadingScreenController.onLoad();
+            loadingScreenController.setTime(time);
         });
     }
 
@@ -86,14 +97,15 @@ public class ScreenSwitcher {
         });
     }
 
-    public static void showQuestionResultsScene() {
+    public static void showQuestionResultsScene(QuestionResultsScreenRequest questionResultsScreenRequest) {
         Platform.runLater(() -> {
             stage.setScene(questionResultsScene);
             stage.show();
+            questionResultsScreenController.onLoad(questionResultsScreenRequest);
         });
     }
 
-    public static void showScoreboardScene() {
+    public static void showScoreboardScene(FinalScoreScreenRequest finalScoreScreenRequest) {
         Platform.runLater(() -> {
             stage.setScene(scoreboardScene);
             stage.show();

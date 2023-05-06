@@ -3,9 +3,13 @@ package pw.espana.kahootgourmet.client;
 import pw.espana.kahootgourmet.client.controllers.LoginScreenScreenController;
 import pw.espana.kahootgourmet.commons.messages.Message;
 import pw.espana.kahootgourmet.commons.messages.MessageId;
+import pw.espana.kahootgourmet.commons.messages.client.requests.AnswerRequest;
 import pw.espana.kahootgourmet.commons.messages.client.requests.CloseConnectionRequest;
 import pw.espana.kahootgourmet.commons.messages.client.requests.JoinRequest;
 import pw.espana.kahootgourmet.commons.messages.client.responses.MessageResponse;
+import pw.espana.kahootgourmet.commons.messages.server.requests.FinalScoreScreenRequest;
+import pw.espana.kahootgourmet.commons.messages.server.requests.QuestionResultsScreenRequest;
+import pw.espana.kahootgourmet.commons.messages.server.requests.LoadingScreenRequest;
 import pw.espana.kahootgourmet.commons.messages.server.responses.JoinResponse;
 
 import java.io.IOException;
@@ -36,7 +40,6 @@ public class ClientThread extends Thread {
     public void run() {
         try {
             socket = new Socket(ip, port);
-            socket.setSoTimeout(100);
             writer = new ObjectOutputStream(socket.getOutputStream());
             writer.flush();
             reader = new ObjectInputStream(socket.getInputStream());
@@ -82,6 +85,26 @@ public class ClientThread extends Thread {
                     loginScreenController.setTxtError(joinResponse.getErrorMessage());
                 }
             }
+            case SERVER_LOADING_SCREEN_REQUEST -> {
+                LoadingScreenRequest loadingScreenRequest = (LoadingScreenRequest) message;
+
+                if (loadingScreenRequest.getWaitTime() > 0) {
+                    ScreenSwitcher.showLoadingScene(loadingScreenRequest.getWaitTime());
+                } else {
+                    ScreenSwitcher.showLoadingScene();
+                }
+            }
+            case SERVER_CHOICE_SCREEN_REQUEST -> {
+                ScreenSwitcher.showButtonsScene();
+            }
+            case SERVER_ANSWER_RESULTS_SCREEN_REQUEST -> {
+                QuestionResultsScreenRequest questionResultsScreenRequest = (QuestionResultsScreenRequest) message;
+                ScreenSwitcher.showQuestionResultsScene(questionResultsScreenRequest);
+            }
+            case SERVER_FINAL_SCORE_SCREEN_REQUEST -> {
+                FinalScoreScreenRequest finalScoreScreenRequest = (FinalScoreScreenRequest) message;
+                ScreenSwitcher.showScoreboardScene(finalScoreScreenRequest);
+            }
             case SERVER_CLOSE_CONNECTION_REQUEST -> closeConnection();
             default -> System.err.println("Unknown message");
         }
@@ -105,5 +128,9 @@ public class ClientThread extends Thread {
 
     public void setLoginController(LoginScreenScreenController loginScreenController) {
         this.loginScreenController = loginScreenController;
+    }
+
+    public void sendAnswer(int selectedAnswer) throws IOException {
+        this.writer.writeObject(new AnswerRequest(selectedAnswer));
     }
 }

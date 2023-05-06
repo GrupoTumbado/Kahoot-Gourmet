@@ -6,7 +6,7 @@ import pw.espana.kahootgourmet.commons.messages.MessageId;
 public class AnswerRequest extends Message {
     private final int answer;
 
-    public AnswerRequest(int answer, String username) {
+    public AnswerRequest(int answer) {
         this.id = MessageId.CLIENT_ANSWER_REQUEST.getValue();
         this.answer = answer;
     }

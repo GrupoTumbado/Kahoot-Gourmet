@@ -5,17 +5,21 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="pw.espana.kahootgourmet.client.controllers.LoadingScreenController">
+<AnchorPane prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pw.espana.kahootgourmet.client.controllers.LoadingScreenController">
    <ImageView fitHeight="700.0" fitWidth="1200.0" opacity="0.6">
-      <Image url="@images/fondo_salon.jpg"/>
+      <Image url="@images/fondo_salon.jpg" />
    </ImageView>
    <Label layoutX="474.0" layoutY="181.0" prefHeight="59.0" prefWidth="253.0" text="¡Prepárate!">
       <font>
-         <Font name="Georgia Bold Italic" size="41.0"/>
+         <Font name="Georgia Bold Italic" size="41.0" />
       </font>
    </Label>
    <ImageView fitHeight="133.0" fitWidth="200.0" layoutX="501.0" layoutY="253.0">
-      <Image url="@images/cargando.gif"/>
+      <Image url="@images/cargando.gif" />
    </ImageView>
+   <Label fx:id="lblTimer" alignment="CENTER" contentDisplay="CENTER" layoutX="590.0" layoutY="240.0" textAlignment="CENTER" AnchorPane.leftAnchor="550.0" AnchorPane.rightAnchor="550.0">
+      <font>
+         <Font name="Georgia" size="38.0" />
+      </font>
+   </Label>
 </AnchorPane>

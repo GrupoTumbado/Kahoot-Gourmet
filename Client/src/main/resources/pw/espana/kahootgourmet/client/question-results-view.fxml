@@ -1,45 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="pw.espana.kahootgourmet.client.controllers.QuestionResultsScreenController">
+<AnchorPane prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pw.espana.kahootgourmet.client.controllers.QuestionResultsScreenController">
    <ImageView fitHeight="700.0" fitWidth="1200.0">
-      <Image url="@images/salon.jpg"/>
+      <Image url="@images/salon.jpg" />
    </ImageView>
-   <Label fx:id="correctoLabel" layoutX="537.0" layoutY="198.0" opacity="1" text="Correcto">
+   <Label fx:id="lblCorrecto" alignment="CENTER" layoutX="537.0" layoutY="198.0" textAlignment="CENTER" AnchorPane.leftAnchor="450.0" AnchorPane.rightAnchor="450.0">
       <font>
-         <Font name="System Bold" size="44.0"/>
+         <Font name="System Bold" size="44.0" />
       </font>
    </Label>
-   <Circle fx:id="circuloVerde" fill="#1fff27" layoutX="626.0" layoutY="350.0" opacity="1" radius="47.0" stroke="WHITE"
-           strokeType="INSIDE"/>
-   <Label fx:id="Usuario_label" layoutX="272.0" layoutY="318.0" text=""/>
-   <Label fx:id="incorrectoLabel" layoutX="520.0" layoutY="198.0" opacity="1" text="Incorrecto">
+   <Circle fx:id="circleResultado" fill="#1fff27" layoutX="600.0" layoutY="350.0" radius="47.0" stroke="WHITE" strokeType="INSIDE" />
+   <Label fx:id="lblPuntosObtenidos" alignment="CENTER" layoutX="419.0" layoutY="451.0" text="Puntos obtenidos:" textAlignment="CENTER" AnchorPane.leftAnchor="400.0" AnchorPane.rightAnchor="400.0">
       <font>
-         <Font name="System Bold" size="44.0"/>
+         <Font size="20.0" />
       </font>
    </Label>
-   <Circle fx:id="circuloRojo" fill="#ff0202" layoutX="626.0" layoutY="350.0" opacity="1" radius="47.0" stroke="WHITE"
-           strokeType="INSIDE"/>
-   <Label fx:id="lb_puntos_obtenidos" layoutX="419.0" layoutY="451.0" text="Puntos obtenidos:">
+   <Label fx:id="lblPuesto" alignment="CENTER" layoutX="419.0" layoutY="511.0" text="Puesto:" textAlignment="CENTER" AnchorPane.leftAnchor="400.0" AnchorPane.rightAnchor="400.0">
       <font>
-         <Font size="20.0"/>
-      </font>
-   </Label>
-   <Label fx:id="lb_relog" layoutX="419.0" layoutY="481.0" text="Relog:">
-      <font>
-         <Font size="20.0"/>
-      </font>
-   </Label>
-   <Label fx:id="lb_puesto" layoutX="419.0" layoutY="511.0" text="Puesto:">
-      <font>
-         <Font size="20.0"/>
+         <Font size="20.0" />
       </font>
    </Label>
 </AnchorPane>

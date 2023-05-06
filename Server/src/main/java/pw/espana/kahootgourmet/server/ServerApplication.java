@@ -37,6 +37,7 @@ public class ServerApplication extends Application {
     public void stop() throws IOException {
         ScreenSwitcher.terminate();
         closeServer();
+        System.exit(0);
     }
 
     public static boolean startServer(int port, int pin, String pathToQuestionnaire) {
@@ -151,6 +152,26 @@ public class ServerApplication extends Application {
             serverUserThread.sendAnswerResults(index + 1);
             index++;
         }
+    }
+
+    public static void clientSendFinalScore() throws Exception {
+        int index = 0;
+        for (ServerUserThread serverUserThread : serverUserThreads) {
+            serverUserThread.sendFinalScore(index + 1);
+            index++;
+        }
+    }
+
+    public static int getAnswerCount() {
+        return serverThread.getAnswerCount();
+    }
+
+    public static void setAnswerCount(int answerCount) {
+        serverThread.setAnswerCount(answerCount);
+    }
+
+    public static void incrementAnswerCount() {
+        serverThread.incrementAnswerCount();
     }
 
     public static void main(String[] args) {
