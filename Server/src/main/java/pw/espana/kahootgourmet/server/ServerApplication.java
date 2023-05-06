@@ -16,7 +16,7 @@ import java.util.TreeSet;
 
 public class ServerApplication extends Application {
     private static final ObservableList<ServerUserThread> serverUserThreads = FXCollections.observableArrayList(new TreeSet<>());
-    private static StateId state = StateId.IDLE; // Defines the state of the state machine. State 0 is a standby state, state 99 is a termination state
+    private static volatile StateId state = StateId.IDLE; // Defines the state of the state machine. State 0 is a standby state, state 99 is a termination state
     private static int pin = 0;
     private static Questionnaire questionnaire;
     private static ServerSocket serverSocket;

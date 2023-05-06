@@ -33,14 +33,13 @@ public class QuestionScreenController {
         timeline.getKeyFrames().add(
             new KeyFrame(Duration.seconds(1), event -> {
                 remainingSeconds--;
-                if (remainingSeconds <= 0) {
-                    timeline.stop();
+                if (remainingSeconds == 0) {
                     ServerApplication.setState(StateId.SHOWING_QUESTION_AND_ANSWERS);
-                } else {
-                    lblTimer.setText(String.valueOf(remainingSeconds));
                 }
+                lblTimer.setText(String.valueOf(remainingSeconds));
             })
         );
+        timeline.play();
     }
 
     public void setStage(Stage stage) {

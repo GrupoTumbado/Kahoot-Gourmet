@@ -83,6 +83,7 @@ public class ScreenSwitcher {
         Platform.runLater(() -> {
             stage.setScene(answerScene);
             stage.show();
+            answerScreenController.onLoad();
         });
     }
 
@@ -98,6 +99,7 @@ public class ScreenSwitcher {
         Platform.runLater(() -> {
             stage.setScene(questionAnswersScene);
             stage.show();
+            questionAnswersScreenController.onLoad();
         });
     }
 
