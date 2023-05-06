@@ -1,5 +1,8 @@
 package pw.espana.kahootgourmet.server.controllers;
 
+import com.almasb.fxgl.profile.SaveFile;
+import pw.espana.kahootgourmet.commons.game.Questionnaire;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -44,6 +47,13 @@ public class QuizEditorScreenController {
     @FXML
     protected void onAddQuestionButtonClick(ActionEvent actionEvent) {
     }
+
+    @FXML
+    protected void onSaveQuizButtonClick(ActionEvent actionEvent) {
+        Questionnaire Questionnaire = new Questionnaire();
+        Questionnaire.saveToFile("C:\\Users\\Usuario\\Desktop\\KahootGourmet\\Server\\src\\main\\resources\\pw\\espana\\kahootgourmet\\server\\questions\\questionnaire1.txt");
+    }
+
 
     public void setStage(Stage stage) {
         this.stage = stage;
