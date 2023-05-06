@@ -1,6 +1,7 @@
 package pw.espana.kahootgourmet.server.controllers;
 
 import com.almasb.fxgl.profile.SaveFile;
+import javafx.stage.FileChooser;
 import pw.espana.kahootgourmet.commons.game.Questionnaire;
 
 import javafx.event.ActionEvent;
@@ -15,6 +16,7 @@ import javafx.stage.Stage;
 import pw.espana.kahootgourmet.server.ScreenSwitcher;
 import pw.espana.kahootgourmet.server.ServerApplication;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.Objects;
 
@@ -50,8 +52,14 @@ public class QuizEditorScreenController {
 
     @FXML
     protected void onSaveQuizButtonClick(ActionEvent actionEvent) {
-        Questionnaire Questionnaire = new Questionnaire();
-        Questionnaire.saveToFile("C:\\Users\\Usuario\\Desktop\\KahootGourmet\\Server\\src\\main\\resources\\pw\\espana\\kahootgourmet\\server\\questions\\questionnaire1.txt");
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Guardar Cuestionario");
+        Stage primaryStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        File file = fileChooser.showSaveDialog(primaryStage);
+        if (file != null) {
+            Questionnaire questionnaire = new Questionnaire();
+            questionnaire.saveToFile(file.getAbsolutePath());
+        }
     }
 
 
