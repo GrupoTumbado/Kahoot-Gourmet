@@ -30,7 +30,7 @@ public class MainScreenController {
         txtPuerto.setText("60420");
     }
 
-    public void onLoad()  {
+    public void onLoad() {
         txtPIN.setText(String.valueOf(ThreadLocalRandom.current().nextInt(1000000, 9999999 + 1)));
     }
 

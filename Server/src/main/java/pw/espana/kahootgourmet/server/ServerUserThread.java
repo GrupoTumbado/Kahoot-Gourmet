@@ -82,7 +82,7 @@ public class ServerUserThread extends Thread implements Comparable<ServerUserThr
                 JoinRequest joinRequest = (JoinRequest) message;
 
                 if (ServerApplication.isUsernameTaken(joinRequest.getUsername())) { // Username already in use. Reject connection
-                    return rejectConnection("Parece que este nombre de usuario ya ha está en uso. Por favor escoge otro.");
+                    return rejectConnection("Este nombre de usuario ya ha está en uso. Por favor escoge otro.");
                 } else if (ServerApplication.getPin() != joinRequest.getPin()) {
                     return rejectConnection("Este pin no es correcto. Intenta nuevamente.");
                 }

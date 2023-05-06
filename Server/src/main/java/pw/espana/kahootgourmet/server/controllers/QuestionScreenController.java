@@ -21,7 +21,7 @@ public class QuestionScreenController {
     private int remainingSeconds = 5;
 
 
-    public void onLoad()  {
+    public void onLoad() {
         Question currentQuestion = ServerApplication.getQuestionnaire().getCurrentQuestion();
         remainingSeconds = ServerApplication.getQuestionnaireWaitTime();
 
