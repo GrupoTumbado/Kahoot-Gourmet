@@ -18,7 +18,6 @@ public class QuestionScreenController {
     private Label lblTimer;
     private int remainingSeconds = 5;
 
-
     public void onLoad() {
         Question currentQuestion = ServerApplication.getQuestionnaire().getCurrentQuestion();
         remainingSeconds = ServerApplication.getQuestionnaireWaitTime();

@@ -42,13 +42,13 @@ public class QuestionAnswersScreenController {
         Timeline timeline = new Timeline();
         timeline.setCycleCount(remainingSeconds);
         timeline.getKeyFrames().add(
-                new KeyFrame(Duration.seconds(1), event -> {
-                    remainingSeconds--;
-                    if (remainingSeconds == 0) {
-                        ServerApplication.setState(StateId.SHOWING_ANSWER);
-                    }
-                    lblTimer.setText(String.valueOf(remainingSeconds));
-                })
+            new KeyFrame(Duration.seconds(1), event -> {
+                remainingSeconds--;
+                if (remainingSeconds == 0) {
+                    ServerApplication.setState(StateId.SHOWING_ANSWER);
+                }
+                lblTimer.setText(String.valueOf(remainingSeconds));
+            })
         );
         timeline.play();
     }

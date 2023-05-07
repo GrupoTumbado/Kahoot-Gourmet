@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="66f0ee7f-824c-40b6-8318-ecffe5833959" name="Changes" comment="" />
+    <list default="true" id="66f0ee7f-824c-40b6-8318-ecffe5833959" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../Client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/server/controllers/QuestionAnswersScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/server/controllers/QuestionAnswersScreenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/server/controllers/QuestionScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/server/controllers/QuestionScreenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/server/controllers/ScoreboardScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/server/controllers/ScoreboardScreenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/server/controllers/StartGameScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/server/controllers/StartGameScreenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/pw/espana/kahootgourmet/server/scoreboard-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/pw/espana/kahootgourmet/server/scoreboard-view.fxml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -86,7 +94,7 @@
       <workItem from="1683223899388" duration="12884000" />
       <workItem from="1683308130861" duration="20282000" />
       <workItem from="1683346868350" duration="13797000" />
-      <workItem from="1683418048067" duration="562000" />
+      <workItem from="1683418048067" duration="1166000" />
     </task>
     <servers />
   </component>

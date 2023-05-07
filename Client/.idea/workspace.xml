@@ -6,8 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="108bf945-86f5-4f9f-92c0-e1adc1dbbc3b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/pw/espana/kahootgourmet/server/controllers/QuestionAnswersScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/pw/espana/kahootgourmet/server/controllers/QuestionAnswersScreenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/pw/espana/kahootgourmet/server/controllers/QuestionScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/pw/espana/kahootgourmet/server/controllers/QuestionScreenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/pw/espana/kahootgourmet/server/controllers/ScoreboardScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/pw/espana/kahootgourmet/server/controllers/ScoreboardScreenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/pw/espana/kahootgourmet/server/controllers/StartGameScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/pw/espana/kahootgourmet/server/controllers/StartGameScreenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/src/main/resources/pw/espana/kahootgourmet/server/scoreboard-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/resources/pw/espana/kahootgourmet/server/scoreboard-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +89,7 @@
       <workItem from="1683235108655" duration="5441000" />
       <workItem from="1683308096829" duration="17841000" />
       <workItem from="1683346873511" duration="11478000" />
-      <workItem from="1683418042152" duration="575000" />
+      <workItem from="1683418042152" duration="1292000" />
     </task>
     <servers />
   </component>

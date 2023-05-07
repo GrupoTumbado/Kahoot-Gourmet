@@ -22,7 +22,6 @@ public class StartGameScreenController {
     @FXML
     private TableColumn<ServerUserThread, String> columnJugadores;
 
-    @FXML
     public void onLoad() {
         txtPIN.setText(String.valueOf(ServerApplication.getPin()));
         tableJugadores.setItems(ServerApplication.getConnectedUsers());

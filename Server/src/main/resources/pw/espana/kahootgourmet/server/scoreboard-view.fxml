@@ -12,9 +12,9 @@
             <Image url="@img/fondoMorado.jpeg" />
          </image>
       </ImageView>
-      <TableView fx:id="tablePlayers" layoutX="408.0" layoutY="128.0" prefHeight="444.0" prefWidth="385.0">
+      <TableView fx:id="tableJugadores" layoutX="408.0" layoutY="128.0" prefHeight="444.0" prefWidth="385.0">
         <columns>
-          <TableColumn prefWidth="384.0" text="Jugadores" />
+          <TableColumn fx:id="columnJugadores" prefWidth="384.0" text="Jugadores" />
         </columns>
       </TableView>
       <Label layoutX="406.0" layoutY="56.0" text="Resultados Finales" textFill="#d3d3d3">
