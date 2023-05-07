@@ -31,7 +31,7 @@ public class MainScreenController {
 
     @FXML
     protected void onLoadButtonClick(ActionEvent actionEvent) throws Exception {
-
+/*
         Questionnaire questionnaire = new Questionnaire();
         Answer[] firstAnswers = { new Answer("Rojo", true), new Answer("Azul", true), new Answer("Amarillo", true), new Answer("Verde", true) };
         Answer[] secondAnswers = { new Answer("Amarillo", false), new Answer("Rojo", false), new Answer("Azul", false), new Answer("Verde", true) };
@@ -40,7 +40,7 @@ public class MainScreenController {
         questionnaire.addQuestion(new Question("¿De qué color es cada cuadro?", 100, secondAnswers));
 
         questionnaire.saveToFile("prueba.bin");
-
+*/
 
         if (!ServerApplication.startServer(Integer.parseInt(txtPuerto.getText()), Integer.parseInt(txtPIN.getText()), "prueba.bin")) return;
 
