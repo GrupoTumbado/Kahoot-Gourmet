@@ -34,7 +34,7 @@ public class Questionnaire implements Serializable {
         currentQuestion++;
     }
 
-    public List<Question> getQuestions() {
+    public SerializableObservableList<Question> getQuestions() {
         return questions;
     }
 
