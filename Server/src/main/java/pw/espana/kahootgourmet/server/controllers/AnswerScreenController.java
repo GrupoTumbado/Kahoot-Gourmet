@@ -3,11 +3,17 @@ package pw.espana.kahootgourmet.server.controllers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import pw.espana.kahootgourmet.commons.game.Answer;
 import pw.espana.kahootgourmet.commons.game.Question;
+import pw.espana.kahootgourmet.commons.game.User;
 import pw.espana.kahootgourmet.server.ServerApplication;
+import pw.espana.kahootgourmet.server.ServerUserThread;
 import pw.espana.kahootgourmet.server.StateId;
 
 public class AnswerScreenController {
@@ -30,15 +36,47 @@ public class AnswerScreenController {
     private Label answerYellow;
     @FXML
     private Label answerGreen;
+    @FXML
+    private Label lbl1erLugar;
+    @FXML
+    private Label lbl2doLugar;
+    @FXML
+    private Label lbl3erLugar;
+    @FXML
+    private ImageView img1erLugar;
+    @FXML
+    private ImageView img2doLugar;
+    @FXML
+    private ImageView img3erLugar;
+
+
 
     public void onLoad() {
-        Question currentQuestion = ServerApplication.getQuestionnaire().getCurrentQuestion();
-        lblPregunta.setText(currentQuestion.question());
 
-        Answer redAnswer = currentQuestion.answers()[0];
-        Answer blueAnswer = currentQuestion.answers()[1];
-        Answer yellowAnswer = currentQuestion.answers()[2];
-        Answer greenAnswer = currentQuestion.answers()[3];
+        int connectedUsers = ServerApplication.getConnectedUsers().size();
+
+        lbl1erLugar.setText(connectedUsers >= 1 ? ServerApplication.getConnectedUsers().get(0).getUsername() : "");
+        img1erLugar.setVisible(connectedUsers >= 1);
+
+        lbl2doLugar.setText(connectedUsers >= 2 ? ServerApplication.getConnectedUsers().get(1).getUsername() : "");
+        img2doLugar.setVisible(connectedUsers >= 2);
+
+        lbl3erLugar.setText(connectedUsers >= 3 ? ServerApplication.getConnectedUsers().get(2).getUsername() : "");
+        img3erLugar.setVisible(connectedUsers >= 3);
+
+        lbl2doLugar.setVisible(connectedUsers >= 2);
+        img2doLugar.setVisible(connectedUsers >= 2);
+
+        lbl3erLugar.setVisible(connectedUsers >= 3);
+        img3erLugar.setVisible(connectedUsers >= 3);
+
+        Question currentQuestion = ServerApplication.getQuestionnaire().getCurrentQuestion();
+        lblPregunta.setText(currentQuestion.getQuestion());
+
+        Answer redAnswer = currentQuestion.getAnswers()[0];
+        Answer blueAnswer = currentQuestion.getAnswers()[1];
+        Answer yellowAnswer = currentQuestion.getAnswers()[2];
+        Answer greenAnswer = currentQuestion.getAnswers()[3];
 
         answerRed.setText(redAnswer.answer());
         answerBlue.setText(blueAnswer.answer());
@@ -58,4 +96,5 @@ public class AnswerScreenController {
     public void setStage(Stage stage) {
         this.stage = stage;
     }
+
 }

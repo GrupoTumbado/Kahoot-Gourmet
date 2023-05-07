@@ -64,31 +64,26 @@
       </Label>
    </Pane>
    <Pane layoutX="202.0" layoutY="86.0" prefHeight="330.0" prefWidth="798.0">
-      <ImageView fitHeight="97.0" fitWidth="62.0" layoutX="8.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-         <Image url="@img/1Lugar.png"/>
+      <ImageView fx:id="img1erLugar" fitHeight="97.0" fitWidth="62.0" layoutX="8.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <Image url="@img/1Lugar.png" />
       </ImageView>
-      <Label fx:id="lbl1erLugar" layoutX="96.0" layoutY="38.0" prefHeight="36.0" prefWidth="607.0" text="Nombre"
-             textFill="WHITE">
+      <Label fx:id="lbl1erLugar" layoutX="96.0" layoutY="38.0" prefHeight="36.0" prefWidth="607.0" text="Nombre" textFill="WHITE">
          <font>
-            <Font name="Arial Rounded MT Bold" size="30.0"/>
+            <Font name="Arial Rounded MT Bold" size="30.0" />
          </font>
       </Label>
-      <ImageView fitHeight="97.0" fitWidth="62.0" layoutX="8.0" layoutY="119.0" pickOnBounds="true"
-                 preserveRatio="true">
-         <Image url="@img/2Lugar.png"/>
+      <ImageView fx:id="img2doLugar" fitHeight="97.0" fitWidth="62.0" layoutX="8.0" layoutY="119.0" pickOnBounds="true" preserveRatio="true">
+         <Image url="@img/2Lugar.png" />
       </ImageView>
-      <Label fx:id="lbl2doLugar" layoutX="96.0" layoutY="143.0" prefHeight="36.0" prefWidth="607.0" text="Nombre"
-             textFill="WHITE">
+      <Label fx:id="lbl2doLugar" layoutX="96.0" layoutY="143.0" prefHeight="36.0" prefWidth="607.0" text="Nombre" textFill="WHITE">
          <font>
-            <Font name="Arial Rounded MT Bold" size="30.0"/>
+            <Font name="Arial Rounded MT Bold" size="30.0" />
          </font>
       </Label>
-      <ImageView fitHeight="97.0" fitWidth="62.0" layoutX="8.0" layoutY="231.0" pickOnBounds="true"
-                 preserveRatio="true">
-         <Image url="@img/3Lugar.png"/>
+      <ImageView fx:id="img3erLugar" fitHeight="97.0" fitWidth="62.0" layoutX="8.0" layoutY="231.0" pickOnBounds="true" preserveRatio="true">
+         <Image url="@img/3Lugar.png" />
       </ImageView>
-      <Label fx:id="lbl3erLugar" layoutX="96.0" layoutY="255.0" prefHeight="36.0" prefWidth="607.0" text="Nombre"
-             textFill="WHITE">
+      <Label fx:id="lbl3erLugar" layoutX="96.0" layoutY="255.0" prefHeight="36.0" prefWidth="607.0" text="Nombre" textFill="WHITE">
          <font>
             <Font name="Arial Rounded MT Bold" size="30.0"/>
          </font>
