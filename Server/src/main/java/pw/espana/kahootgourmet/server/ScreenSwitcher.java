@@ -26,14 +26,14 @@ public class ScreenSwitcher {
     private static ScoreboardScreenController scoreboardScreenController;
     private static StartGameScreenController startGameScreenController;
 
-
     public static void initScreenSwitcher(Stage stage) throws IOException {
         ScreenSwitcher.stage = stage;
 
         // Load the FXML files for the two scenes
         FXMLLoader answerScreenLoader = new FXMLLoader(ScreenSwitcher.class.getResource("answer-view.fxml"));
         FXMLLoader mainScreenLoader = new FXMLLoader(ScreenSwitcher.class.getResource("main-view.fxml"));
-        FXMLLoader questionAnswersScreenLoader = new FXMLLoader(ScreenSwitcher.class.getResource("question-answers-view.fxml"));
+        FXMLLoader questionAnswersScreenLoader = new FXMLLoader(
+                ScreenSwitcher.class.getResource("question-answers-view.fxml"));
         FXMLLoader questionScreenLoader = new FXMLLoader(ScreenSwitcher.class.getResource("question-view.fxml"));
         FXMLLoader quizEditorScreenLoader = new FXMLLoader(ScreenSwitcher.class.getResource("quiz-editor-view.fxml"));
         FXMLLoader scoreboardScreenLoader = new FXMLLoader(ScreenSwitcher.class.getResource("scoreboard-view.fxml"));
@@ -115,6 +115,7 @@ public class ScreenSwitcher {
         Platform.runLater(() -> {
             stage.setScene(quizEditorScene);
             stage.show();
+            quizEditorScreenController.onLoad();
         });
     }
 
