@@ -7,7 +7,6 @@ module pw.espana.kahootgourmet.client {
     requires com.dlsc.formsfx;
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
-    requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
 
     opens pw.espana.kahootgourmet.client to javafx.fxml;
