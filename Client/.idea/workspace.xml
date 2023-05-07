@@ -5,16 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="108bf945-86f5-4f9f-92c0-e1adc1dbbc3b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/client/ClientApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/client/ClientApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/client/controllers/ButtonsScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pw/espana/kahootgourmet/client/controllers/ButtonsScreenController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/pw/espana/kahootgourmet/server/ServerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/pw/espana/kahootgourmet/server/ServerApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/pw/espana/kahootgourmet/server/ServerThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/pw/espana/kahootgourmet/server/ServerThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/pw/espana/kahootgourmet/server/StateId.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/pw/espana/kahootgourmet/server/StateId.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/pw/espana/kahootgourmet/server/controllers/AnswerScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/pw/espana/kahootgourmet/server/controllers/AnswerScreenController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/pw/espana/kahootgourmet/server/controllers/MainScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/pw/espana/kahootgourmet/server/controllers/MainScreenController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/pw/espana/kahootgourmet/server/controllers/QuestionScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/pw/espana/kahootgourmet/server/controllers/QuestionScreenController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/pw/espana/kahootgourmet/server/controllers/QuizEditorScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/pw/espana/kahootgourmet/server/controllers/QuizEditorScreenController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/pw/espana/kahootgourmet/server/controllers/StartGameScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/pw/espana/kahootgourmet/server/controllers/StartGameScreenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +40,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
+    "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.31724137",
     "settings.editor.selected.configurable": "reference.settings.ide.settings.web.browsers",
@@ -92,6 +83,7 @@
       <workItem from="1683235108655" duration="5441000" />
       <workItem from="1683308096829" duration="17841000" />
       <workItem from="1683346873511" duration="11478000" />
+      <workItem from="1683418042152" duration="160000" />
     </task>
     <servers />
   </component>
