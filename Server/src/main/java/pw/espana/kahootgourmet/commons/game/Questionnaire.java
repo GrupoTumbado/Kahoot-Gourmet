@@ -9,8 +9,8 @@ import java.util.List;
 public class Questionnaire implements Serializable {
     private int currentQuestion = 0;
     private final SerializableObservableList<Question> questions = new SerializableObservableList<>();
-    private final int answerTime;
-    private final int waitTime;
+    private int answerTime;
+    private int waitTime;
 
     public Questionnaire() {
         this.answerTime = 60;
@@ -45,6 +45,7 @@ public class Questionnaire implements Serializable {
     public void addQuestion(Question question) {
         questions.add(question);
     }
+
     public void eraseQuestion(Question question) {
         questions.remove(question);
     }
@@ -53,8 +54,16 @@ public class Questionnaire implements Serializable {
         return answerTime;
     }
 
+    public void setAnswerTime(int time) {
+        this.answerTime = time;
+    }
+
     public int getWaitTime() {
         return waitTime;
+    }
+
+    public void setWaitTime(int time) {
+        this.waitTime = time;
     }
 
     public static Questionnaire loadFromFile(String pathToQuestionnaire) {
