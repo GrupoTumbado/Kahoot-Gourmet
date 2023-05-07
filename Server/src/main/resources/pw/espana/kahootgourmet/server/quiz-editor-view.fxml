@@ -27,15 +27,6 @@
             </Label>
          </children>
       </Pane>
-      <VBox layoutX="35.0" layoutY="41.0" prefHeight="618.0" prefWidth="185.0" style="-fx-background-color: #505050;">
-         <children>
-            <TableView fx:id="tablePreguntas" prefHeight="618.0" prefWidth="185.0" onMouseClicked="#onMouseClicked">
-               <columns>
-                  <TableColumn fx:id="columnPreguntas" prefWidth="184.0" text="Preguntas" />
-               </columns>
-            </TableView>
-         </children>
-      </VBox>
       <TextField fx:id="txtPregunta" alignment="CENTER" layoutX="292.0" layoutY="164.0" prefHeight="44.0" prefWidth="862.0" promptText="Escribe tu pregunta">
          <font>
             <Font name="Arial Rounded MT Bold" size="20.0" />
@@ -110,6 +101,21 @@
          </font>
       </Button>
       <Button fx:id="btnEliminar" layoutX="402.0" layoutY="599.0" mnemonicParsing="false" onAction="#onEraseQuestionButtonClick" prefHeight="45.0" prefWidth="185.0" text="Eliminar">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="21.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnAgregar1" layoutX="45.0" layoutY="556.0" mnemonicParsing="false" onAction="#onAddQuestionButtonClick" prefHeight="45.0" prefWidth="185.0" text="Agregar pregunta">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="21.0" />
+         </font>
+      </Button>
+      <TableView fx:id="tablePreguntas" layoutX="45.0" layoutY="39.0" onMouseClicked="#onMouseClicked" prefHeight="501.0" prefWidth="185.0">
+         <columns>
+            <TableColumn fx:id="columnPreguntas" prefWidth="184.0" text="Preguntas" />
+         </columns>
+      </TableView>
+      <Button fx:id="btnAgregar11" layoutX="45.0" layoutY="622.0" mnemonicParsing="false" onAction="#onAddQuestionButtonClick" prefHeight="45.0" prefWidth="185.0">
          <font>
             <Font name="Arial Rounded MT Bold" size="21.0" />
          </font>
