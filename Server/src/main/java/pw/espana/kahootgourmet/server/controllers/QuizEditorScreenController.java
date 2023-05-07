@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -40,10 +41,11 @@ public class QuizEditorScreenController {
     private CheckBox checkYellow;
     @FXML
     private TableView<Question> tablePreguntas;
+    @FXML
+    private TableColumn<Question, String> columnPreguntas;
     private Question selectedQuestion;
 
     Questionnaire questionnaire = new Questionnaire();
-
 
     @FXML
     protected void onReturnButtonClick(ActionEvent actionEvent) throws IOException {
@@ -52,9 +54,13 @@ public class QuizEditorScreenController {
 
     @FXML
     protected void onAddQuestionButtonClick(ActionEvent actionEvent) {
-        Answer[] answers = { new Answer(txtRed.getText(), checkRed.isSelected()), new Answer(txtBlue.getText(), checkBlue.isSelected()), new Answer(txtYellow.getText(), checkYellow.isSelected()), new Answer(txtGreen.getText(), checkGreen.isSelected()) };
+        Answer[] answers = { new Answer(txtRed.getText(), checkRed.isSelected()),
+                new Answer(txtBlue.getText(), checkBlue.isSelected()),
+                new Answer(txtYellow.getText(), checkYellow.isSelected()),
+                new Answer(txtGreen.getText(), checkGreen.isSelected()) };
         Question question = new Question(txtPregunta.getText(), 100, answers);
         questionnaire.addQuestion(question);
+        clearFields();
     }
 
     @FXML
@@ -69,13 +75,22 @@ public class QuizEditorScreenController {
         }
     }
 
-
     public void setStage(Stage stage) {
         this.stage = stage;
     }
 
     public void onMouseClicked(MouseEvent mouseEvent) {
         selectedQuestion = tablePreguntas.getSelectionModel().getSelectedItem();
+        Answer[] answers = selectedQuestion.answers();
+        txtPregunta.setText(selectedQuestion.question());
+        txtRed.setText(answers[0].answer());
+        txtBlue.setText(answers[1].answer());
+        txtGreen.setText(answers[2].answer());
+        txtYellow.setText(answers[3].answer());
+        checkRed.setSelected(answers[0].correct());
+        checkBlue.setSelected(answers[1].correct());
+        checkGreen.setSelected(answers[2].correct());
+        checkYellow.setSelected(answers[3].correct());
     }
 
     public void onEraseQuestionButtonClick(ActionEvent actionEvent) {
@@ -83,5 +98,21 @@ public class QuizEditorScreenController {
     }
 
     public void onSaveQuestionnaireButtonClick(ActionEvent actionEvent) {
+    }
+
+    public void clearFields() {
+        txtPregunta.clear();
+        txtRed.clear();
+        txtBlue.clear();
+        txtGreen.clear();
+        txtYellow.clear();
+        checkRed.setSelected(false);
+        checkBlue.setSelected(false);
+        checkGreen.setSelected(false);
+        checkYellow.setSelected(false);
+    }
+
+    public void onLoad() {
+        columnPreguntas.setCellValueFactory(data -> data.getValue().question());
     }
 }
