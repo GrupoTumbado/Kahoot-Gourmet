@@ -95,6 +95,7 @@ public class QuizEditorScreenController {
 
     public void onEraseQuestionButtonClick(ActionEvent actionEvent) {
         questionnaire.eraseQuestion(selectedQuestion);
+        clearFields();
     }
 
     public void onSaveQuestionnaireButtonClick(ActionEvent actionEvent) {
@@ -113,6 +114,7 @@ public class QuizEditorScreenController {
     }
 
     public void onLoad() {
+        tablePreguntas.setItems(questionnaire.getQuestions());
         columnPreguntas.setCellValueFactory(data -> data.getValue().questionProperty());
     }
 }
