@@ -68,12 +68,17 @@ public class QuizEditorScreenController {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Guardar Cuestionario");
         Stage primaryStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+
+        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Cuestionario (*.bin)", "*.bin");
+        fileChooser.getExtensionFilters().add(extFilter);
+
         File file = fileChooser.showSaveDialog(primaryStage);
         if (file != null) {
             Questionnaire questionnaire = new Questionnaire();
             questionnaire.saveToFile(file.getAbsolutePath());
         }
     }
+
 
     public void setStage(Stage stage) {
         this.stage = stage;
