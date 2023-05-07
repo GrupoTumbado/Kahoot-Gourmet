@@ -1,29 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pw.espana.kahootgourmet.client.controllers.QuestionResultsScreenController">
-   <ImageView fitHeight="700.0" fitWidth="1200.0">
-      <Image url="@images/salon.jpg" />
-   </ImageView>
-   <Label fx:id="lblCorrecto" alignment="CENTER" layoutX="537.0" layoutY="198.0" textAlignment="CENTER" AnchorPane.leftAnchor="450.0" AnchorPane.rightAnchor="450.0">
+<AnchorPane fx:id="anchorPaneBackground" prefHeight="700.0" prefWidth="1200.0" style="-fx-background-color: #66bf39" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pw.espana.kahootgourmet.client.controllers.QuestionResultsScreenController">
+   <SVGPath fx:id="checkmark" content="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" fill="WHITE" layoutX="586.0" layoutY="288.0" scaleX="5" scaleY="5" />
+   <SVGPath fx:id="cross" content="M0,170l65.555-65.555L0,38.891L38.891,0l65.555,65.555L170,0l38.891,38.891l-65.555,65.555L208.891,170L170,208.891  l-65.555-65.555l-65.555,65.555L0,170z" fill="WHITE" layoutX="496.0" layoutY="195.0" scaleX="0.5" scaleY="0.5" />
+   <Label fx:id="lblCorrecto" alignment="CENTER" layoutX="450.0" layoutY="151.0" text="Correcto" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="450.0" AnchorPane.rightAnchor="450.0">
       <font>
-         <Font name="System Bold" size="44.0" />
+         <Font name="Corbel Bold" size="44.0" />
       </font>
    </Label>
-   <Circle fx:id="circleResultado" fill="#1fff27" layoutX="600.0" layoutY="350.0" radius="47.0" stroke="WHITE" strokeType="INSIDE" />
-   <Label fx:id="lblPuntosObtenidos" alignment="CENTER" layoutX="419.0" layoutY="451.0" text="Puntos obtenidos:" textAlignment="CENTER" AnchorPane.leftAnchor="400.0" AnchorPane.rightAnchor="400.0">
+   <Label fx:id="lblPuntosObtenidos" alignment="CENTER" layoutX="497.0" layoutY="378.0" prefHeight="53.0" prefWidth="208.0" style="-fx-background-color: rgba(86,86,86,0.31)" text="¡Ups, esa no fue la respuesta correcta! ¡Sigue adelante y aprende de tus errores!" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="450.0" AnchorPane.rightAnchor="450.0">
       <font>
-         <Font size="20.0" />
+         <Font name="Corbel Bold" size="22.0" />
       </font>
    </Label>
-   <Label fx:id="lblPuesto" alignment="CENTER" layoutX="419.0" layoutY="511.0" text="Puesto:" textAlignment="CENTER" AnchorPane.leftAnchor="400.0" AnchorPane.rightAnchor="400.0">
+   <Label fx:id="lblPuesto" alignment="CENTER" layoutX="419.0" layoutY="511.0" text="Estás en" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="400.0" AnchorPane.rightAnchor="400.0">
       <font>
-         <Font size="20.0" />
+         <Font name="Corbel" size="20.0" />
       </font>
    </Label>
 </AnchorPane>

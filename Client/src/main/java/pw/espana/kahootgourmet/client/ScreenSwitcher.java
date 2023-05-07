@@ -94,6 +94,7 @@ public class ScreenSwitcher {
         Platform.runLater(() -> {
             stage.setScene(buttonsScene);
             stage.show();
+            buttonsScreenController.onLoad();
         });
     }
 
