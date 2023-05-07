@@ -52,7 +52,6 @@ public class AnswerScreenController {
 
 
     public void onLoad() {
-
         int connectedUsers = ServerApplication.getConnectedUsers().size();
 
         lbl1erLugar.setText(connectedUsers >= 1 ? ServerApplication.getConnectedUsers().get(0).getUsername() : "");

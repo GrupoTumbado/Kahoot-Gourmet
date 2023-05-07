@@ -31,13 +31,13 @@ public class QuestionAnswersScreenController {
         Question currentQuestion = ServerApplication.getQuestionnaire().getCurrentQuestion();
         remainingSeconds = ServerApplication.getQuestionnaireAnswerTime();
 
-        lblPregunta.setText(currentQuestion.question());
+        lblPregunta.setText(currentQuestion.getQuestion());
         lblTimer.setText(String.valueOf(remainingSeconds));
 
-        answerRed.setText(currentQuestion.answers()[0].answer());
-        answerBlue.setText(currentQuestion.answers()[1].answer());
-        answerYellow.setText(currentQuestion.answers()[2].answer());
-        answerGreen.setText(currentQuestion.answers()[3].answer());
+        answerRed.setText(currentQuestion.getAnswers()[0].answer());
+        answerBlue.setText(currentQuestion.getAnswers()[1].answer());
+        answerYellow.setText(currentQuestion.getAnswers()[2].answer());
+        answerGreen.setText(currentQuestion.getAnswers()[3].answer());
 
         Timeline timeline = new Timeline();
         timeline.setCycleCount(remainingSeconds);

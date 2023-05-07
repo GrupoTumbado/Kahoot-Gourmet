@@ -5,42 +5,41 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pw.espana.kahootgourmet.server.controllers.ScoreboardScreenController">
-   <children>
-      <ImageView fitHeight="700.0" fitWidth="1200.0" pickOnBounds="true">
-         <image>
-            <Image url="@img/fondoMorado.jpeg" />
-         </image>
-      </ImageView>
-      <TableView fx:id="tableJugadores" layoutX="408.0" layoutY="128.0" prefHeight="444.0" prefWidth="385.0">
-        <columns>
-          <TableColumn fx:id="columnJugadores" prefWidth="384.0" text="Jugadores" />
-        </columns>
-      </TableView>
-      <Label layoutX="406.0" layoutY="56.0" text="Resultados Finales" textFill="#d3d3d3">
-         <font>
-            <Font name="Arial Rounded MT Bold" size="48.0" />
-         </font>
-      </Label>
-      <Label layoutX="455.0" layoutY="578.0" text="¡Gracias por jugar!" textFill="#d3d3d3">
-         <font>
-            <Font name="Arial Rounded MT Bold" size="36.0" />
-         </font>
-      </Label>
-      <Label layoutX="383.0" layoutY="631.0" text="Felicidades a los ganadores" textFill="#d3d3d3">
-         <font>
-            <Font name="Arial Rounded MT Bold" size="36.0" />
-         </font>
-      </Label>
-      <Button fx:id="btnStartAgain" layoutX="1052.0" layoutY="17.0" mnemonicParsing="false" text="Volver a jugar">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Button>
-      <Button fx:id="btnFinishGame" layoutX="898.0" layoutY="17.0" mnemonicParsing="false" text="Terminar juego">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Button>
-   </children>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0"
+            prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="pw.espana.kahootgourmet.server.controllers.ScoreboardScreenController">
+   <ImageView fitHeight="700.0" fitWidth="1200.0" pickOnBounds="true">
+      <Image url="@img/fondoMorado.jpeg"/>
+   </ImageView>
+   <TableView fx:id="tableJugadores" layoutX="408.0" layoutY="128.0" prefHeight="444.0" prefWidth="400">
+      <columns>
+         <TableColumn fx:id="columnJugadores" prefWidth="300" text="Jugador"/>
+         <TableColumn fx:id="columnPuntos" prefWidth="100" text="Puntos"/>
+      </columns>
+   </TableView>
+   <Label layoutX="406.0" layoutY="56.0" text="Resultados Finales" textFill="#d3d3d3">
+      <font>
+         <Font name="Arial Rounded MT Bold" size="48.0"/>
+      </font>
+   </Label>
+   <Label layoutX="455.0" layoutY="578.0" text="¡Gracias por jugar!" textFill="#d3d3d3">
+      <font>
+         <Font name="Arial Rounded MT Bold" size="36.0"/>
+      </font>
+   </Label>
+   <Label layoutX="383.0" layoutY="631.0" text="Felicidades a los ganadores" textFill="#d3d3d3">
+      <font>
+         <Font name="Arial Rounded MT Bold" size="36.0"/>
+      </font>
+   </Label>
+   <!--<Button fx:id="btnStartAgain" layoutX="1052.0" layoutY="17.0" mnemonicParsing="false" text="Volver a jugar">
+      <font>
+         <Font size="18.0"/>
+      </font>
+   </Button>
+   <Button fx:id="btnFinishGame" layoutX="898.0" layoutY="17.0" mnemonicParsing="false" text="Terminar juego">
+      <font>
+         <Font size="18.0"/>
+      </font>
+   </Button>-->
 </AnchorPane>

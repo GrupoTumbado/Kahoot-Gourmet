@@ -13,10 +13,13 @@ public class ScoreboardScreenController {
     private TableView<ServerUserThread> tableJugadores;
     @FXML
     private TableColumn<ServerUserThread, String> columnJugadores;
+    @FXML
+    private TableColumn<ServerUserThread, String> columnPuntos;
 
     public void onLoad() {
         tableJugadores.setItems(ServerApplication.getConnectedUsers());
         columnJugadores.setCellValueFactory(data -> data.getValue().usernameProperty());
+        columnPuntos.setCellValueFactory(data -> data.getValue().scoreProperty());
     }
 
     public void setStage(Stage stage) {

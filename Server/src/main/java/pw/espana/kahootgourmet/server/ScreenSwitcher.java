@@ -123,6 +123,7 @@ public class ScreenSwitcher {
         Platform.runLater(() -> {
             stage.setScene(scoreboardScene);
             stage.show();
+            scoreboardScreenController.onLoad();
         });
     }
 

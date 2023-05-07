@@ -10,10 +10,13 @@ import pw.espana.kahootgourmet.commons.game.Questionnaire;
 
 import java.io.IOException;
 import java.net.ServerSocket;
+import java.util.Comparator;
 import java.util.TreeSet;
 
 public class ServerApplication extends Application {
-    private static final ObservableList<ServerUserThread> serverUserThreads = FXCollections.observableArrayList(new TreeSet<>());
+    private static final Comparator<ServerUserThread> comparator = Comparator.comparing(ServerUserThread::getScore).reversed();
+    private static final TreeSet<ServerUserThread> treeSet = new TreeSet<>(comparator);
+    private static final ObservableList<ServerUserThread> serverUserThreads = FXCollections.observableArrayList(treeSet);
     private static volatile StateId state = StateId.IDLE; // Defines the state of the state machine. State 0 is a standby state, state 99 is a termination state
     private static int pin = 0;
     private static Questionnaire questionnaire;
@@ -170,6 +173,10 @@ public class ServerApplication extends Application {
 
     public static void incrementAnswerCount() {
         serverThread.incrementAnswerCount();
+    }
+
+    public static void sortUsers() {
+        serverUserThreads.sort(comparator);
     }
 
     public static void main(String[] args) {

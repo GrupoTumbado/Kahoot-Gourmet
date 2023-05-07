@@ -22,7 +22,7 @@ public class QuestionScreenController {
         Question currentQuestion = ServerApplication.getQuestionnaire().getCurrentQuestion();
         remainingSeconds = ServerApplication.getQuestionnaireWaitTime();
 
-        lblPregunta.setText(currentQuestion.question());
+        lblPregunta.setText(currentQuestion.getQuestion());
         lblTimer.setText(String.valueOf(remainingSeconds));
 
         Timeline timeline = new Timeline();

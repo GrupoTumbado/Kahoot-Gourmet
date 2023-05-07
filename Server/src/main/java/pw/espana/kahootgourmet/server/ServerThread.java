@@ -39,6 +39,7 @@ public class ServerThread extends Thread {
                     } catch (SocketTimeoutException e) {}
                 }
                 case SHOWING_QUESTION -> {
+                    answerCount = 0;
                     ServerApplication.clientDisplayLoadingScreen(questionnaire.getWaitTime());
                     ScreenSwitcher.showQuestionScene();
                     ServerApplication.setState(StateId.IDLE);
@@ -54,6 +55,7 @@ public class ServerThread extends Thread {
                     }
                 }
                 case SHOWING_ANSWER -> {
+                    ServerApplication.sortUsers();
                     ServerApplication.clientSendAnswerResults();
                     ScreenSwitcher.showAnswerScene();
                     ServerApplication.setState(StateId.IDLE);

@@ -81,8 +81,8 @@ public class QuizEditorScreenController {
 
     public void onMouseClicked(MouseEvent mouseEvent) {
         selectedQuestion = tablePreguntas.getSelectionModel().getSelectedItem();
-        Answer[] answers = selectedQuestion.answers();
-        txtPregunta.setText(selectedQuestion.question());
+        Answer[] answers = selectedQuestion.getAnswers();
+        txtPregunta.setText(selectedQuestion.getQuestion());
         txtRed.setText(answers[0].answer());
         txtBlue.setText(answers[1].answer());
         txtGreen.setText(answers[2].answer());
@@ -113,6 +113,6 @@ public class QuizEditorScreenController {
     }
 
     public void onLoad() {
-        columnPreguntas.setCellValueFactory(data -> data.getValue().question());
+        columnPreguntas.setCellValueFactory(data -> data.getValue().questionProperty());
     }
 }

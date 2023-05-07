@@ -21,7 +21,7 @@ import java.net.SocketTimeoutException;
 import java.time.Duration;
 import java.time.Instant;
 
-public class ServerUserThread extends Thread implements Comparable<ServerUserThread> {
+public class ServerUserThread extends Thread {
     private boolean shouldStop;
     private final Socket socket;
     private User user;
@@ -57,13 +57,6 @@ public class ServerUserThread extends Thread implements Comparable<ServerUserThr
         }
     }
 
-    // Override the compareTo method to implement the Comparable interface
-    // and allow for natural ordering of ServerThread objects based on user score.
-    @Override
-    public int compareTo(ServerUserThread otherUser) {
-        return Integer.compare(user.getScore(), otherUser.user.getScore());
-    }
-
     private int processMessage(Object obj) throws Exception {
         if (!(obj instanceof Message message)) {
             System.err.println("Unknown message object");
@@ -92,13 +85,13 @@ public class ServerUserThread extends Thread implements Comparable<ServerUserThr
                 if (question == null || answerRequest != null) break; // Check if we have a valid question, and if the client has not answered
 
                 answerRequest = (AnswerRequest) message;
-                Answer answer = question.answers()[answerRequest.getAnswer()];
+                Answer answer = question.getAnswers()[answerRequest.getAnswer()];
 
                 if (answer.correct()) {
                     int answerTime = ServerApplication.getQuestionnaire().getAnswerTime();
                     Duration timeToAnswer = Duration.between(questionSentTime, answerRequest.getCreatedAt());
                     float scoreMultiplier = (float) answerTime / (answerTime + ((float) timeToAnswer.toMillis() / 1000.0f));
-                    pointsGained = (int) (question.scoreValue() * scoreMultiplier);
+                    pointsGained = (int) (question.getScoreValue() * scoreMultiplier);
 
                     user.addScore(pointsGained);
                 }
@@ -138,6 +131,8 @@ public class ServerUserThread extends Thread implements Comparable<ServerUserThr
 
     public void enableAnswerIntake(Question question) throws Exception {
         this.question = question;
+        this.answerRequest = null;
+        this.pointsGained = 0;
         this.writer.writeObject(new ChoiceScreenRequest());
         questionSentTime = Instant.now();
     }
@@ -146,7 +141,7 @@ public class ServerUserThread extends Thread implements Comparable<ServerUserThr
         if (answerRequest == null) {
             this.writer.writeObject(new QuestionResultsScreenRequest(false, 0, user.getScore(), place));
         } else {
-            Answer answer = question.answers()[answerRequest.getAnswer()];
+            Answer answer = question.getAnswers()[answerRequest.getAnswer()];
             this.writer.writeObject(new QuestionResultsScreenRequest(answer.correct(), pointsGained, user.getScore(), place));
         }
     }
@@ -159,7 +154,15 @@ public class ServerUserThread extends Thread implements Comparable<ServerUserThr
         return user.getUsername();
     }
 
+    public int getScore() {
+        return user.getScore();
+    }
+
     public StringProperty usernameProperty() {
         return new SimpleStringProperty(user.getUsername());
+    }
+
+    public StringProperty scoreProperty() {
+        return new SimpleStringProperty(String.valueOf(user.getScore()));
     }
 }

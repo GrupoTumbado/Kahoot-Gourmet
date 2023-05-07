@@ -8,7 +8,7 @@ import java.util.List;
 
 public class Questionnaire implements Serializable {
     private int currentQuestion = 0;
-    private final ObservableList<Question> questions = FXCollections.observableArrayList();;
+    private final SerializableObservableList<Question> questions = new SerializableObservableList<>();
     private final int answerTime;
     private final int waitTime;
 
