@@ -1,12 +1,14 @@
 package pw.espana.kahootgourmet.commons.game;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import java.io.*;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Questionnaire implements Serializable {
     private int currentQuestion = 0;
-    private final List<Question> questions = new ArrayList<>();
+    private final ObservableList<Question> questions = FXCollections.observableArrayList();;
     private final int answerTime;
     private final int waitTime;
 
